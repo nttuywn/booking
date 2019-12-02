@@ -4,20 +4,15 @@ import { mapping, light as lightTheme } from '@eva-design/eva';
 import { ApplicationProvider, Layout, Text } from 'react-native-ui-kitten';
 import { Provider as PaperProvider } from 'react-native-paper';
 import configureStore from './src/redux/configureStore';
+import LandingScreen from './src/containers/landing-screen';
 
 const store = configureStore();
-
-const ApplicationContent = () => (
-  <Layout style={{ flex: 3, justifyContent: 'center', alignItems: 'center' }}>
-    <Text>Wellcome</Text>
-  </Layout>
-);
 
 const App = () => (
   <Provider store={store}>
     <PaperProvider>
       <ApplicationProvider mapping={mapping} theme={lightTheme}>
-        <ApplicationContent />
+        <LandingScreen/>
       </ApplicationProvider>
     </PaperProvider>
   </Provider>

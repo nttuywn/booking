@@ -1,0 +1,4 @@
+#Mon Dec 02 19:35:40 ICT 2019
+base.0=E\:\\ReactJS\\Project\\kim-giang-salon\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
+path.0=classes.dex
+renamed.0=classes.dex

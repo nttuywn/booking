@@ -1,0 +1,223 @@
+-- Merging decision tree log ---
+manifest
+ADDED from E:\ReactJS\Project\kim-giang-salon\android\app\src\main\AndroidManifest.xml:1:1-26:12
+INJECTED from E:\ReactJS\Project\kim-giang-salon\android\app\src\main\AndroidManifest.xml:1:1-26:12
+INJECTED from E:\ReactJS\Project\kim-giang-salon\android\app\src\main\AndroidManifest.xml:1:1-26:12
+INJECTED from E:\ReactJS\Project\kim-giang-salon\android\app\src\main\AndroidManifest.xml:1:1-26:12
+MERGED from E:\ReactJS\Project\kim-giang-salon\android\app\src\main\AndroidManifest.xml:1:1-26:12
+MERGED from [:react-native-vector-icons] E:\ReactJS\Project\kim-giang-salon\node_modules\react-native-vector-icons\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [com.facebook.react:react-native:0.61.5] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\296dbcd18171eefa7ef6d8399ff4d2bb\AndroidManifest.xml:2:1-13:12
+MERGED from [org.webkit:android-jsc:r245459] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\1a8a1befb02116f6df4b3d6d172606c2\AndroidManifest.xml:2:1-11:12
+MERGED from [androidx.appcompat:appcompat:1.0.2] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\7e53957600a08b1be41c19f5888105b2\AndroidManifest.xml:17:1-22:12
+MERGED from [com.facebook.fresco:fresco:2.0.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\37ff148a89a71292727c3a10569bfd64\AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:imagepipeline-okhttp3:2.0.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\853df7b437458922a42fd58203793653\AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:drawee:2.0.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\4e8b538ee688e2a3425aa0f89c285fa3\AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:nativeimagefilters:2.0.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\1ea2d6bf7e699504f3346798e041cbc5\AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:imagepipeline:2.0.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\f30ae253e7df80a379b6f2c9ec5f0f9d\AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:nativeimagetranscoder:2.0.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\88723dbd7118ff8db118159ac5ff9475\AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:imagepipeline-base:2.0.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\32d1399de52ce63a529ebd9a90a965b1\AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.soloader:soloader:0.6.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\1e9a35733e4143784264823d26045221\AndroidManifest.xml:2:1-13:12
+MERGED from [androidx.fragment:fragment:1.0.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\dbdae74047f80d487b903479a8eb4413\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.0.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\211fc097022d1bf5dfb2dd18445da2ee\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\b9d736df61e62b59e9332bca42087c1b\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\3f563e9249cf1780cf7531c908ea4c73\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.vectordrawable:vectordrawable:1.0.1] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\dfae32928847000dbcdb8788745f922e\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\b5d244c2de58c9ac4d6cae7dbf831341\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\e808dc355502793beb2bebadc426d494\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.0.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\47a0ef5908a5b5cdd8cd24c544ae713f\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\ec619a438212d70341ebb2c439fb7939\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\c662a4758f8a7450345aa7fe5bb29798\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.customview:customview:1.0.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\1ca9fffc53bf8ff15fa3b2942414aff6\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\50033469dcca56c178ecbe938cc4f7c5\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\4869eab6355748d344c74d79314c2467\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.core:core:1.0.1] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\aab09003bec3434ee5b3eac45cb4715d\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.0.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\d3545751375c2ff55d450c0a516e8096\AndroidManifest.xml:17:1-25:12
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\478468106d6c25323136754acf49e668\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.0.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\9f535670edab77eec7396dac7f4cac08\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\09f1cdc85b3e2ec9ef54f383555cef5c\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\ebc29536270996c16191f735ada3e4c5\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.print:print:1.0.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\5315e216b4e6efb2580ac57758219b23\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.0.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\ea3c04fb8115bfba590cb23b57843142\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\0dc5736f01293d5f84697b74f1587c6f\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\75d51634b9dccb6d4bfeb70675b396b8\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\aca095188a653308f2a5d354cc687c50\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\1786d28fe1ede8721f7df2992bc92823\AndroidManifest.xml:17:1-22:12
+MERGED from [com.facebook.fresco:fbcore:2.0.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\6273bc93c4d9d9fefd3bba154c7f3230\AndroidManifest.xml:2:1-9:12
+INJECTED from E:\ReactJS\Project\kim-giang-salon\android\app\src\debug\AndroidManifest.xml:2:1-8:12
+INJECTED from E:\ReactJS\Project\kim-giang-salon\android\app\src\debug\AndroidManifest.xml:2:1-8:12
+INJECTED from E:\ReactJS\Project\kim-giang-salon\android\app\src\debug\AndroidManifest.xml:2:1-8:12
+	package
+		ADDED from E:\ReactJS\Project\kim-giang-salon\android\app\src\main\AndroidManifest.xml:2:3-24
+		INJECTED from E:\ReactJS\Project\kim-giang-salon\android\app\src\main\AndroidManifest.xml
+		ADDED from E:\ReactJS\Project\kim-giang-salon\android\app\src\main\AndroidManifest.xml:2:3-24
+		INJECTED from E:\ReactJS\Project\kim-giang-salon\android\app\src\debug\AndroidManifest.xml
+	android:versionName
+		INJECTED from E:\ReactJS\Project\kim-giang-salon\android\app\src\main\AndroidManifest.xml
+		ADDED from E:\ReactJS\Project\kim-giang-salon\android\app\src\main\AndroidManifest.xml:1:1-26:12
+		INJECTED from E:\ReactJS\Project\kim-giang-salon\android\app\src\debug\AndroidManifest.xml
+	xmlns:tools
+		ADDED from E:\ReactJS\Project\kim-giang-salon\android\app\src\debug\AndroidManifest.xml:3:5-51
+	android:versionCode
+		INJECTED from E:\ReactJS\Project\kim-giang-salon\android\app\src\main\AndroidManifest.xml
+		ADDED from E:\ReactJS\Project\kim-giang-salon\android\app\src\main\AndroidManifest.xml:1:1-26:12
+		INJECTED from E:\ReactJS\Project\kim-giang-salon\android\app\src\debug\AndroidManifest.xml
+	xmlns:android
+		ADDED from E:\ReactJS\Project\kim-giang-salon\android\app\src\main\AndroidManifest.xml:1:11-69
+uses-permission#android.permission.INTERNET
+ADDED from E:\ReactJS\Project\kim-giang-salon\android\app\src\main\AndroidManifest.xml:4:5-67
+	android:name
+		ADDED from E:\ReactJS\Project\kim-giang-salon\android\app\src\main\AndroidManifest.xml:4:22-64
+application
+ADDED from E:\ReactJS\Project\kim-giang-salon\android\app\src\main\AndroidManifest.xml:6:5-24:19
+MERGED from E:\ReactJS\Project\kim-giang-salon\android\app\src\main\AndroidManifest.xml:6:5-24:19
+MERGED from E:\ReactJS\Project\kim-giang-salon\android\app\src\main\AndroidManifest.xml:6:5-24:19
+MERGED from [com.facebook.react:react-native:0.61.5] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\296dbcd18171eefa7ef6d8399ff4d2bb\AndroidManifest.xml:11:5-20
+MERGED from [com.facebook.react:react-native:0.61.5] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\296dbcd18171eefa7ef6d8399ff4d2bb\AndroidManifest.xml:11:5-20
+MERGED from [com.facebook.soloader:soloader:0.6.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\1e9a35733e4143784264823d26045221\AndroidManifest.xml:11:5-20
+MERGED from [com.facebook.soloader:soloader:0.6.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\1e9a35733e4143784264823d26045221\AndroidManifest.xml:11:5-20
+MERGED from [androidx.core:core:1.0.1] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\aab09003bec3434ee5b3eac45cb4715d\AndroidManifest.xml:22:5-89
+MERGED from [androidx.core:core:1.0.1] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\aab09003bec3434ee5b3eac45cb4715d\AndroidManifest.xml:22:5-89
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.0.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\d3545751375c2ff55d450c0a516e8096\AndroidManifest.xml:22:5-23:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.0.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\d3545751375c2ff55d450c0a516e8096\AndroidManifest.xml:22:5-23:19
+	android:appComponentFactory
+		ADDED from [androidx.core:core:1.0.1] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\aab09003bec3434ee5b3eac45cb4715d\AndroidManifest.xml:22:18-86
+	android:label
+		ADDED from E:\ReactJS\Project\kim-giang-salon\android\app\src\main\AndroidManifest.xml:8:7-39
+		ADDED from E:\ReactJS\Project\kim-giang-salon\android\app\src\main\AndroidManifest.xml:8:7-39
+	tools:ignore
+		ADDED from E:\ReactJS\Project\kim-giang-salon\android\app\src\debug\AndroidManifest.xml:7:75-114
+	android:roundIcon
+		ADDED from E:\ReactJS\Project\kim-giang-salon\android\app\src\main\AndroidManifest.xml:10:7-52
+		ADDED from E:\ReactJS\Project\kim-giang-salon\android\app\src\main\AndroidManifest.xml:10:7-52
+	tools:targetApi
+		ADDED from E:\ReactJS\Project\kim-giang-salon\android\app\src\debug\AndroidManifest.xml:7:54-74
+	android:icon
+		ADDED from E:\ReactJS\Project\kim-giang-salon\android\app\src\main\AndroidManifest.xml:9:7-41
+		ADDED from E:\ReactJS\Project\kim-giang-salon\android\app\src\main\AndroidManifest.xml:9:7-41
+	android:allowBackup
+		ADDED from E:\ReactJS\Project\kim-giang-salon\android\app\src\main\AndroidManifest.xml:11:7-34
+		ADDED from E:\ReactJS\Project\kim-giang-salon\android\app\src\main\AndroidManifest.xml:11:7-34
+	android:theme
+		ADDED from E:\ReactJS\Project\kim-giang-salon\android\app\src\main\AndroidManifest.xml:12:7-38
+		ADDED from E:\ReactJS\Project\kim-giang-salon\android\app\src\main\AndroidManifest.xml:12:7-38
+	android:usesCleartextTraffic
+		ADDED from E:\ReactJS\Project\kim-giang-salon\android\app\src\debug\AndroidManifest.xml:7:18-53
+	android:name
+		ADDED from E:\ReactJS\Project\kim-giang-salon\android\app\src\main\AndroidManifest.xml:7:7-38
+		ADDED from E:\ReactJS\Project\kim-giang-salon\android\app\src\main\AndroidManifest.xml:7:7-38
+activity#com.booking.MainActivity
+ADDED from E:\ReactJS\Project\kim-giang-salon\android\app\src\main\AndroidManifest.xml:13:7-22:18
+	android:label
+		ADDED from E:\ReactJS\Project\kim-giang-salon\android\app\src\main\AndroidManifest.xml:15:9-41
+	android:windowSoftInputMode
+		ADDED from E:\ReactJS\Project\kim-giang-salon\android\app\src\main\AndroidManifest.xml:17:9-51
+	android:configChanges
+		ADDED from E:\ReactJS\Project\kim-giang-salon\android\app\src\main\AndroidManifest.xml:16:9-79
+	android:name
+		ADDED from E:\ReactJS\Project\kim-giang-salon\android\app\src\main\AndroidManifest.xml:14:9-37
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from E:\ReactJS\Project\kim-giang-salon\android\app\src\main\AndroidManifest.xml:18:9-21:25
+action#android.intent.action.MAIN
+ADDED from E:\ReactJS\Project\kim-giang-salon\android\app\src\main\AndroidManifest.xml:19:13-65
+	android:name
+		ADDED from E:\ReactJS\Project\kim-giang-salon\android\app\src\main\AndroidManifest.xml:19:21-62
+category#android.intent.category.LAUNCHER
+ADDED from E:\ReactJS\Project\kim-giang-salon\android\app\src\main\AndroidManifest.xml:20:13-73
+	android:name
+		ADDED from E:\ReactJS\Project\kim-giang-salon\android\app\src\main\AndroidManifest.xml:20:23-70
+activity#com.facebook.react.devsupport.DevSettingsActivity
+ADDED from E:\ReactJS\Project\kim-giang-salon\android\app\src\main\AndroidManifest.xml:23:7-84
+	android:name
+		ADDED from E:\ReactJS\Project\kim-giang-salon\android\app\src\main\AndroidManifest.xml:23:17-81
+uses-sdk
+INJECTED from E:\ReactJS\Project\kim-giang-salon\android\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from E:\ReactJS\Project\kim-giang-salon\android\app\src\main\AndroidManifest.xml
+INJECTED from E:\ReactJS\Project\kim-giang-salon\android\app\src\main\AndroidManifest.xml
+MERGED from [:react-native-vector-icons] E:\ReactJS\Project\kim-giang-salon\node_modules\react-native-vector-icons\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-vector-icons] E:\ReactJS\Project\kim-giang-salon\node_modules\react-native-vector-icons\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.react:react-native:0.61.5] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\296dbcd18171eefa7ef6d8399ff4d2bb\AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.react:react-native:0.61.5] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\296dbcd18171eefa7ef6d8399ff4d2bb\AndroidManifest.xml:7:5-9:41
+MERGED from [org.webkit:android-jsc:r245459] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\1a8a1befb02116f6df4b3d6d172606c2\AndroidManifest.xml:7:5-9:41
+MERGED from [org.webkit:android-jsc:r245459] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\1a8a1befb02116f6df4b3d6d172606c2\AndroidManifest.xml:7:5-9:41
+MERGED from [androidx.appcompat:appcompat:1.0.2] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\7e53957600a08b1be41c19f5888105b2\AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat:1.0.2] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\7e53957600a08b1be41c19f5888105b2\AndroidManifest.xml:20:5-44
+MERGED from [com.facebook.fresco:fresco:2.0.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\37ff148a89a71292727c3a10569bfd64\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:fresco:2.0.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\37ff148a89a71292727c3a10569bfd64\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-okhttp3:2.0.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\853df7b437458922a42fd58203793653\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-okhttp3:2.0.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\853df7b437458922a42fd58203793653\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:drawee:2.0.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\4e8b538ee688e2a3425aa0f89c285fa3\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:drawee:2.0.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\4e8b538ee688e2a3425aa0f89c285fa3\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:nativeimagefilters:2.0.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\1ea2d6bf7e699504f3346798e041cbc5\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:nativeimagefilters:2.0.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\1ea2d6bf7e699504f3346798e041cbc5\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline:2.0.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\f30ae253e7df80a379b6f2c9ec5f0f9d\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline:2.0.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\f30ae253e7df80a379b6f2c9ec5f0f9d\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:nativeimagetranscoder:2.0.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\88723dbd7118ff8db118159ac5ff9475\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:nativeimagetranscoder:2.0.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\88723dbd7118ff8db118159ac5ff9475\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-base:2.0.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\32d1399de52ce63a529ebd9a90a965b1\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-base:2.0.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\32d1399de52ce63a529ebd9a90a965b1\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.soloader:soloader:0.6.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\1e9a35733e4143784264823d26045221\AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.soloader:soloader:0.6.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\1e9a35733e4143784264823d26045221\AndroidManifest.xml:7:5-9:41
+MERGED from [androidx.fragment:fragment:1.0.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\dbdae74047f80d487b903479a8eb4413\AndroidManifest.xml:20:5-44
+MERGED from [androidx.fragment:fragment:1.0.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\dbdae74047f80d487b903479a8eb4413\AndroidManifest.xml:20:5-44
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.0.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\211fc097022d1bf5dfb2dd18445da2ee\AndroidManifest.xml:20:5-44
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.0.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\211fc097022d1bf5dfb2dd18445da2ee\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\b9d736df61e62b59e9332bca42087c1b\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\b9d736df61e62b59e9332bca42087c1b\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\3f563e9249cf1780cf7531c908ea4c73\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\3f563e9249cf1780cf7531c908ea4c73\AndroidManifest.xml:20:5-44
+MERGED from [androidx.vectordrawable:vectordrawable:1.0.1] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\dfae32928847000dbcdb8788745f922e\AndroidManifest.xml:20:5-44
+MERGED from [androidx.vectordrawable:vectordrawable:1.0.1] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\dfae32928847000dbcdb8788745f922e\AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\b5d244c2de58c9ac4d6cae7dbf831341\AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\b5d244c2de58c9ac4d6cae7dbf831341\AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\e808dc355502793beb2bebadc426d494\AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\e808dc355502793beb2bebadc426d494\AndroidManifest.xml:20:5-44
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.0.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\47a0ef5908a5b5cdd8cd24c544ae713f\AndroidManifest.xml:20:5-44
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.0.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\47a0ef5908a5b5cdd8cd24c544ae713f\AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\ec619a438212d70341ebb2c439fb7939\AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\ec619a438212d70341ebb2c439fb7939\AndroidManifest.xml:20:5-44
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\c662a4758f8a7450345aa7fe5bb29798\AndroidManifest.xml:20:5-44
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\c662a4758f8a7450345aa7fe5bb29798\AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\1ca9fffc53bf8ff15fa3b2942414aff6\AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\1ca9fffc53bf8ff15fa3b2942414aff6\AndroidManifest.xml:20:5-44
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\50033469dcca56c178ecbe938cc4f7c5\AndroidManifest.xml:20:5-44
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\50033469dcca56c178ecbe938cc4f7c5\AndroidManifest.xml:20:5-44
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\4869eab6355748d344c74d79314c2467\AndroidManifest.xml:20:5-44
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\4869eab6355748d344c74d79314c2467\AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.0.1] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\aab09003bec3434ee5b3eac45cb4715d\AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.0.1] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\aab09003bec3434ee5b3eac45cb4715d\AndroidManifest.xml:20:5-44
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.0.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\d3545751375c2ff55d450c0a516e8096\AndroidManifest.xml:20:5-44
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.0.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\d3545751375c2ff55d450c0a516e8096\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\478468106d6c25323136754acf49e668\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\478468106d6c25323136754acf49e668\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.0.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\9f535670edab77eec7396dac7f4cac08\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.0.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\9f535670edab77eec7396dac7f4cac08\AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\09f1cdc85b3e2ec9ef54f383555cef5c\AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\09f1cdc85b3e2ec9ef54f383555cef5c\AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\ebc29536270996c16191f735ada3e4c5\AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\ebc29536270996c16191f735ada3e4c5\AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\5315e216b4e6efb2580ac57758219b23\AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\5315e216b4e6efb2580ac57758219b23\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.0.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\ea3c04fb8115bfba590cb23b57843142\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.0.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\ea3c04fb8115bfba590cb23b57843142\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\0dc5736f01293d5f84697b74f1587c6f\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\0dc5736f01293d5f84697b74f1587c6f\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\75d51634b9dccb6d4bfeb70675b396b8\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\75d51634b9dccb6d4bfeb70675b396b8\AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\aca095188a653308f2a5d354cc687c50\AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\aca095188a653308f2a5d354cc687c50\AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\1786d28fe1ede8721f7df2992bc92823\AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\1786d28fe1ede8721f7df2992bc92823\AndroidManifest.xml:20:5-44
+MERGED from [com.facebook.fresco:fbcore:2.0.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\6273bc93c4d9d9fefd3bba154c7f3230\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:fbcore:2.0.0] C:\Users\tusss\.gradle\caches\transforms-2\files-2.1\6273bc93c4d9d9fefd3bba154c7f3230\AndroidManifest.xml:5:5-7:41
+INJECTED from E:\ReactJS\Project\kim-giang-salon\android\app\src\debug\AndroidManifest.xml
+INJECTED from E:\ReactJS\Project\kim-giang-salon\android\app\src\debug\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from E:\ReactJS\Project\kim-giang-salon\android\app\src\main\AndroidManifest.xml
+		INJECTED from E:\ReactJS\Project\kim-giang-salon\android\app\src\debug\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from E:\ReactJS\Project\kim-giang-salon\android\app\src\main\AndroidManifest.xml
+		INJECTED from E:\ReactJS\Project\kim-giang-salon\android\app\src\debug\AndroidManifest.xml
+uses-permission#android.permission.SYSTEM_ALERT_WINDOW
+ADDED from E:\ReactJS\Project\kim-giang-salon\android\app\src\debug\AndroidManifest.xml:5:5-77
+	android:name
+		ADDED from E:\ReactJS\Project\kim-giang-salon\android\app\src\debug\AndroidManifest.xml:5:22-75
