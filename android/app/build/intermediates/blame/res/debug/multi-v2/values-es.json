@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "E:\\ReactJS\\Project\\kim-giang-salon\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-es\\values-es.xml",
+            "outputFile": "F:\\react-native\\learning\\booking\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-es\\values-es.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\tusss\\.gradle\\caches\\transforms-2\\files-2.1\\7e53957600a08b1be41c19f5888105b2\\res\\values-es\\values-es.xml",
+                    "source": "C:\\Users\\Tuyen\\.gradle\\caches\\transforms-2\\files-2.1\\6633e33c0a1fabea00012a649a51e7af\\res\\values-es\\values-es.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -14,7 +14,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\tusss\\.gradle\\caches\\transforms-2\\files-2.1\\aab09003bec3434ee5b3eac45cb4715d\\res\\values-es\\values-es.xml",
+                    "source": "C:\\Users\\Tuyen\\.gradle\\caches\\transforms-2\\files-2.1\\f25e27b9801efc41970d970dd2a55546\\res\\values-es\\values-es.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
