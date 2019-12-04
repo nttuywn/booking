@@ -1,61 +1,76 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, ScrollView } from 'react-native';
-import { Table, TableWrapper, Row } from 'react-native-table-component';
- 
-export default class Statistics extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      tableHead: ['STT', 'Tên', 'SĐT', 'Đã Cắt', 'Đã Hủy'],
-      widthArr: [30, 150, 110, 40, 40]
-    }
-  }
- 
+import { connect } from 'react-redux';
+
+import {
+  Platform,
+  StyleSheet,
+  View,
+  Text
+} from 'react-native'
+import Table from 'react-native-simple-table'
+
+const columns = [
+  {
+    title: 'STT',
+    dataIndex: 'id',
+    width: 35
+  },
+  {
+    title: 'Tên',
+    dataIndex: 'name',
+    width: 160
+  },
+  {
+    title: 'SĐT',
+    dataIndex: 'phone',
+    width: 130
+  },
+  {
+    title: 'Đã Cắt',
+    dataIndex: 'totalWork',
+    width: 35
+  },
+  {
+    title: 'Đã Hủy',
+    dataIndex: 'totalCancel',
+    width: 35
+  },
+];
+
+class Statistics extends Component {
   render() {
-    const state = this.state;
-    const tableData = [];
-    tableData.push(['1','Ngô Trọng Tuyên', '0345081945', '102', '143', '2']);
-    for (let i = 0; i < 30; i += 1) {
-      const rowData = [];
-      for (let j = 0; j < 9; j += 1) {
-        rowData.push(`${i}${j}`);
-      }
-      tableData.push(rowData);
-    }
- 
+    const { customers } = this.props.landingScreenMockData;
+    console.log('eee');
     return (
       <View style={styles.container}>
-        <ScrollView horizontal={true}>
-          <View>
-            <Table>
-              <Row data={state.tableHead} widthArr={state.widthArr} style={styles.header} textStyle={styles.text}/>
-            </Table>
-            <ScrollView style={styles.dataWrapper}>
-              <Table borderStyle={{borderWidth: 1, borderColor: '#C1C0B9'}}>
-                {
-                  tableData.map((rowData, index) => (
-                    <Row
-                      key={index}
-                      data={rowData}
-                      widthArr={state.widthArr}
-                      style={[styles.row, index%2 && {backgroundColor: '#F7F6E7'}]}
-                      textStyle={styles.text}
-                    />
-                  ))
-                }
-              </Table>
-            </ScrollView>
-          </View>
-        </ScrollView>
+        <Text style={styles.title}>react-native-simple-table</Text>
+        <Table height={640} columnWidth={120} columns={columns} dataSource={customers} />
       </View>
     )
   }
 }
- 
+
 const styles = StyleSheet.create({
-  container: { flex: 1, padding: 16, paddingTop: 30, backgroundColor: '#fff' },
-  header: { height: 50, backgroundColor: '#537791' },
-  text: { textAlign: 'center', fontWeight: '100' },
-  dataWrapper: { marginTop: -1 },
-  row: { height: 40, backgroundColor: '#E7E6E1' }
+  container: {
+    ...Platform.select({
+      ios: {
+        paddingTop: 20
+      },
+      android: {}
+    }),
+  },
+  title: {
+    fontSize: 18,
+    padding: 10,
+    textAlign: 'center'
+  }
 });
+
+const mapStateToProps = (state) => {
+  const { landingScreenMockData } = state;
+  return { landingScreenMockData }
+}
+
+const connectedStatistics = connect(mapStateToProps)(Statistics);
+
+export default connectedStatistics;

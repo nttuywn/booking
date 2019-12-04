@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import { sampleReducer } from './sampleReducer';
+import { landingScreenMockData } from './landing-screen/reducer';
 
 export default combineReducers({
-    sampleReducer
+    landingScreenMockData
 });

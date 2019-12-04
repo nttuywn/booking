@@ -1,9 +1,41 @@
 import React from 'react';
-import { BottomNavigation, Text } from 'react-native-paper';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { View } from 'react-native';
+
+import { generateMockData } from '../redux/rootAction';
+
 import MBottomNavigation from '../components/MBottomNavigation';
+import { CustomerFactory } from '../helper/mock-data';
 
-const LandingScreen = () => (
-    <MBottomNavigation/>
-);
+const mockData = CustomerFactory.generate().data;
 
-export default LandingScreen;
+class LandingScreen extends React.Component {
+
+    componentDidMount() {
+        this.props.generateMockData(mockData);
+    }
+
+    render() {
+        return (
+            <MBottomNavigation />
+        );
+    }
+}
+
+const mapStateToProps = (state) => {
+    const { } = state;
+    return {};
+}
+
+const mapStateToDispatch = (dispatch) =>
+    bindActionCreators(
+        {
+            generateMockData
+        },
+        dispatch
+    );
+
+const connectedLandingScreen = connect(mapStateToProps, mapStateToDispatch)(LandingScreen);
+
+export default connectedLandingScreen;

@@ -1,1 +1,1 @@
-// export * from './body-information/action';
+export * from './landing-screen/action';
