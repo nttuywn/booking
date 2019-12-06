@@ -16,6 +16,8 @@ import com.booking.R;
 
 // @react-native-community/datetimepicker
 import com.reactcommunity.rndatetimepicker.RNDateTimePickerPackage;
+// react-native-sqlite-storage
+import org.pgsqlite.SQLitePluginPackage;
 // react-native-vector-icons
 import com.oblador.vectoricons.VectorIconsPackage;
 
@@ -64,6 +66,7 @@ public class PackageList {
     return new ArrayList<>(Arrays.<ReactPackage>asList(
       new MainReactPackage(mConfig),
       new RNDateTimePickerPackage(),
+      new SQLitePluginPackage(),
       new VectorIconsPackage()
     ));
   }

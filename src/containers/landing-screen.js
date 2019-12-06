@@ -7,12 +7,13 @@ import { generateMockData } from '../redux/rootAction';
 
 import MBottomNavigation from '../components/MBottomNavigation';
 import { CustomerFactory } from '../helper/mock-data';
+import Database from '../config/database';
 
 const mockData = CustomerFactory.generate().data;
 
 class LandingScreen extends React.Component {
 
-    componentDidMount() {
+    componentDidMount() {;
         this.props.generateMockData(mockData);
     }
 

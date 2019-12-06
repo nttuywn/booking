@@ -7,15 +7,22 @@ import { Autocomplete, withKeyboardAwareScrollView } from "react-native-dropdown
 import { Layout, Text, Input } from 'react-native-ui-kitten';
 import { Avatar, Button } from 'react-native-paper';
 import DateTimePicker from '@react-native-community/datetimepicker';
-import { CustomerFactory } from '../helper/mock-data';
+import moment from 'moment';
+
+import { addworkPostDataRequest, addworkPostDataResponse } from '../redux/rootAction';
+import { TIME_FORMAT, DATE_FORMAT } from '../config/datetime-format';
 
 class AddWork extends React.Component {
 
     state = {
-        date: new Date('2020-06-12T14:42:42'),
+        hour: '00',
+        minute: '00',
+        date: '',
         mode: 'date',
         show: false,
-        query: null
+        query: null,
+        name: null,
+        phone: null,
     }
 
     setDate = (event, date) => {
@@ -42,9 +49,21 @@ class AddWork extends React.Component {
         this.show('time');
     }
 
+    postAddWorkData = () => {
+        let form = new FormData();
+        this.props.addworkPostDataRequest({
+            name: this.state.name,
+            phone: this.state.phone,
+            date: this.state.date,
+            hour: this.state.hour,
+            minute: this.state.minute,
+            status: false
+        });
+    }
+
     render() {
         const { scrollToInput, onDropdownClose, onDropdownShow } = this.props;
-        const { customers } = this.props.landingScreenMockData;
+        const { customers = [] } = this.props.landingScreenMockData;
         return (
             <Layout style={styles.container}>
                 <Layout style={styles.layout} level='1'>
@@ -53,11 +72,18 @@ class AddWork extends React.Component {
                         // scrollToInput={ev => scrollToInput(ev)}
                         // onDropdownClose={() => onDropdownClose()}
                         // onDropdownShow={() => onDropdownShow()}
+                        handleSelectItem={(item) =>
+                            this.setState({
+                                ...this.state,
+                                name: item.name,
+                                phone: item.phone
+                            })
+                        }
                         placeholder="Tìm Kiếm"
                         inputContainerStyle={{ width: '100%' }}
                         inputStyle={{ width: '100%' }}
                         data={customers}
-                        minimumCharactersCount={2}
+                        minimumCharactersCount={1}
                         highlightText
                         valueExtractor={item => `${item.name} (${item.phone})`}
                         rightContent
@@ -66,14 +92,14 @@ class AddWork extends React.Component {
                 </Layout>
 
                 <Layout style={styles.layout} level='1'>
-                    <View style={{justifyContent: 'center', alignItems: 'center'}}>
+                    <View style={{ justifyContent: 'center', alignItems: 'center' }}>
                         <Avatar.Image
                             size={120}
                             source={{ uri: 'http://images.summitmedia-digital.com/cosmo/images/2018/11/27/blackpink-lisa-1543288094.jpg' }}
                         />
                     </View>
                     <Input
-                        value={'Hoàng Văn A'}
+                        value={this.state.name ? this.state.name : ''}
                         style={styles.input}
                         textStyle={styles.inputText}
                         labelStyle={styles.inputLabel}
@@ -82,41 +108,50 @@ class AddWork extends React.Component {
 
                     />
                     <Input
-                        value={'0345678888'}
+                        value={this.state.phone ? `${this.state.phone}` : ''}
                         style={styles.input}
                         textStyle={styles.inputText}
                         labelStyle={styles.inputLabel}
                         onChangeText={() => console.log('e')}
                         label='Số Điện Thoại:'
                     />
-                    <View style={{ width: '100%' }} onTouchStart={this.timepicker}>
+                    <View style={{ width: '100%' }} onTouchStart={this.datepicker}>
                         <Input
+                            value={this.state.date}
                             style={styles.input}
                             textStyle={styles.inputText}
                             labelStyle={styles.inputLabel}
-                            onTouchStart={this.datepicker}
                             label='Ngày tháng:'
                             disabled={true}
                         />
                     </View>
                     <View style={{ width: '100%' }} onTouchStart={this.timepicker}>
                         <Input
+                            value={`${this.state.hour}:${this.state.minute}`}
                             style={styles.input}
                             textStyle={styles.inputText}
                             labelStyle={styles.inputLabel}
-                            onTouchStart={this.timepicker}
                             label='Thời gian:'
                             disabled={true}
                         />
                     </View>
-                    <Button mode="contained" onPress={() => console.log('Pressed')}>
+                    <Button mode="contained" onPress={() => this.postAddWorkData()}>
                         Thêm
                 </Button>
-                    {this.state.show && <DateTimePicker value={this.state.date}
-                        mode={this.state.mode}
-                        is24Hour={true}
-                        display="default"
-                        onChange={this.setDate} />
+                    {this.state.show &&
+                        <DateTimePicker
+                            value={new Date()}
+                            mode={this.state.mode}
+                            display="default"
+                            onChange={(event, dateTime) => this.state.mode == 'time' ?
+                                this.setState({
+                                    ...this.state,
+                                    show: false,
+                                    hour: `${moment(dateTime, TIME_FORMAT).hour()}`,
+                                    minute: `${moment(dateTime, TIME_FORMAT).minute()}`
+                                }) :
+                                this.setState({ ...this.state, show: false, date: `${moment(dateTime).format(DATE_FORMAT)}` })
+                            } />
                     }
                 </Layout>
             </Layout>
@@ -144,6 +179,8 @@ const mapStateToProps = (state) => {
 const mapStateToDispatch = (dispatch) =>
     bindActionCreators(
         {
+            addworkPostDataRequest,
+            addworkPostDataResponse
         },
         dispatch
     );

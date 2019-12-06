@@ -7,6 +7,7 @@ INJECTED from F:\react-native\learning\booking\android\app\src\main\AndroidManif
 MERGED from F:\react-native\learning\booking\android\app\src\main\AndroidManifest.xml:1:1-26:12
 MERGED from [:react-native-vector-icons] F:\react-native\learning\booking\node_modules\react-native-vector-icons\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
 MERGED from [:@react-native-community_datetimepicker] F:\react-native\learning\booking\node_modules\@react-native-community\datetimepicker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-13:12
+MERGED from [:react-native-sqlite-storage] F:\react-native\learning\booking\node_modules\react-native-sqlite-storage\platforms\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
 MERGED from [com.facebook.react:react-native:0.61.5] C:\Users\Tuyen\.gradle\caches\transforms-2\files-2.1\42f29af8fd623e070e712a3a17e7db5c\AndroidManifest.xml:2:1-13:12
 MERGED from [org.webkit:android-jsc:r245459] C:\Users\Tuyen\.gradle\caches\transforms-2\files-2.1\36623654e7ad510eae49b26b3e8a4aa7\AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.appcompat:appcompat:1.0.2] C:\Users\Tuyen\.gradle\caches\transforms-2\files-2.1\6633e33c0a1fabea00012a649a51e7af\AndroidManifest.xml:17:1-22:12
@@ -140,6 +141,8 @@ MERGED from [:react-native-vector-icons] F:\react-native\learning\booking\node_m
 MERGED from [:react-native-vector-icons] F:\react-native\learning\booking\node_modules\react-native-vector-icons\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
 MERGED from [:@react-native-community_datetimepicker] F:\react-native\learning\booking\node_modules\@react-native-community\datetimepicker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
 MERGED from [:@react-native-community_datetimepicker] F:\react-native\learning\booking\node_modules\@react-native-community\datetimepicker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-sqlite-storage] F:\react-native\learning\booking\node_modules\react-native-sqlite-storage\platforms\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-sqlite-storage] F:\react-native\learning\booking\node_modules\react-native-sqlite-storage\platforms\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
 MERGED from [com.facebook.react:react-native:0.61.5] C:\Users\Tuyen\.gradle\caches\transforms-2\files-2.1\42f29af8fd623e070e712a3a17e7db5c\AndroidManifest.xml:7:5-9:41
 MERGED from [com.facebook.react:react-native:0.61.5] C:\Users\Tuyen\.gradle\caches\transforms-2\files-2.1\42f29af8fd623e070e712a3a17e7db5c\AndroidManifest.xml:7:5-9:41
 MERGED from [org.webkit:android-jsc:r245459] C:\Users\Tuyen\.gradle\caches\transforms-2\files-2.1\36623654e7ad510eae49b26b3e8a4aa7\AndroidManifest.xml:7:5-9:41
