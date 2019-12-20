@@ -1,17 +1,31 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 import { View } from 'react-native';
 import { Avatar, Card } from 'react-native-paper';
 import { Button, Text } from 'react-native-ui-kitten';
+
+import { homeFinishJobRequest } from '../redux/rootAction';
+
 import MCountingTime from './MCountingTime';
 
-export default class MCard extends React.Component {
+class MCard extends React.Component {
 
     constructor() {
         super();
         this.state = {
             start: false,
         }
+        this.clock = React.createRef();
+    }
+
+    finishJob = () => {
+        this.props.homeFinishJobRequest({
+            ...this.props.item,
+            status: '1'
+        });
+        this.clock.current.stopClock();
     }
 
     render() {
@@ -26,21 +40,45 @@ export default class MCard extends React.Component {
                     <Text category="h6">{`Ngày hẹn: ${customer.date}`}</Text>
                     <Text category="h6">{`Thời gian hẹn: ${customer.hour}:${customer.minute}`}</Text>
                     <Text category="h6">Thời gian bắt đầu: 14:05</Text>
-                    {this.state.start ? <MCountingTime /> : <Text category="h6">Công việc chưa bắt đầu</Text>}
+                    {this.state.start ? <MCountingTime ref={this.clock}/> : <Text category="h6">Công việc chưa bắt đầu</Text>}
                 </Card.Content>
 
-                <Card.Actions>
-                    <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-around' }}>
-                        <Button status='success'
-                            onPress={() => this.setState({
-                                start: true
-                            })}>
-                            Bắt Đầu
+                {customer.status == "1" ?
+                    <Text category="h6">Công việc đã được thực hiện</Text> :
+                    <Card.Actions>
+                        <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-around' }}>
+                            {this.state.start ?
+                                <Button status='danger'
+                                    onPress={() => this.finishJob()}>
+                                    Kết Thúc
+                            </Button> :
+                                <Button status='success'
+                                    onPress={() => this.setState({
+                                        start: true
+                                    })}>
+                                    Bắt Đầu
                             </Button>
-                        <Button status='danger'>Hủy Bỏ</Button>
-                    </View>
-                </Card.Actions>
+                            }
+                        </View>
+                    </Card.Actions>
+                }
             </Card>
         );
     }
 }
+
+const mapStateToProps = state => {
+    const { } = state;
+    return {};
+}
+
+const mapStateToDispatch = dispatch =>
+    bindActionCreators(
+        {
+            homeFinishJobRequest
+        },
+        dispatch
+    );
+
+const connectedMCard = connect(mapStateToProps, mapStateToDispatch)(MCard);
+export default connectedMCard;

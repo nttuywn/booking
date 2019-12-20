@@ -1,6 +1,6 @@
 // import { ApiSignUp } from './sign-up/saga';
 // import { ApiBodyInformation } from './body-information/saga';
-import { HomeBookingList } from './home/saga';
+import { HomeBookingList, HomeFinishJob } from './home/saga';
 import { AddWorkUpdateListBooking } from './add-work/saga';
 // import * as TYPES from './constants';
 import { take, put, call, fork, spawn, cancel, actionChannel } from 'redux-saga/effects';
@@ -51,5 +51,6 @@ export default function* rootSaga() {
     yield spawn(watchError);
     // yield spawn(ApiBodyInformation);
     yield spawn(HomeBookingList);
+    yield spawn(HomeFinishJob);
     yield spawn(AddWorkUpdateListBooking);
 }

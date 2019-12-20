@@ -24,3 +24,20 @@ export function* HomeBookingList() {
         }
     });
 }
+
+async function getFinishiJobData(booking){
+    const db = new DataBase();
+    await db.initDB().then(() => db.updateBooking(booking));
+}
+
+export function* HomeFinishJob() {
+    yield takeLatest(CONSTANTS.HOME_FINISHJOB_REQUEST, function* (action) {
+        try {
+            const { booking } = action;
+            const result = yield call(getFinishiJobData, booking);
+            yield put(ACTIONS.homeGetBookingListRequest());
+        } catch(e) {
+            console.log(e);
+        }
+    });
+}

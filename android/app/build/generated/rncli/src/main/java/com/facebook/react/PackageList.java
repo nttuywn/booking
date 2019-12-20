@@ -16,6 +16,10 @@ import com.booking.R;
 
 // @react-native-community/datetimepicker
 import com.reactcommunity.rndatetimepicker.RNDateTimePickerPackage;
+// react-native-android-sms-listener
+import com.centaurwarchief.smslistener.SmsListenerPackage;
+// react-native-sms-retriever
+import me.furtado.smsretriever.RNSmsRetrieverPackage;
 // react-native-sqlite-storage
 import org.pgsqlite.SQLitePluginPackage;
 // react-native-vector-icons
@@ -66,6 +70,8 @@ public class PackageList {
     return new ArrayList<>(Arrays.<ReactPackage>asList(
       new MainReactPackage(mConfig),
       new RNDateTimePickerPackage(),
+      new SmsListenerPackage(),
+      new RNSmsRetrieverPackage(),
       new SQLitePluginPackage(),
       new VectorIconsPackage()
     ));

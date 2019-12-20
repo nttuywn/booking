@@ -9,10 +9,10 @@ export default class MCountingTime extends React.Component {
 
         this.state = {
             startHour: 0,
-            startMinute: 0
+            startMinute: 0,
         }
     }
-
+    
     componentWillUnmount() {
         clearInterval(this.timer);
     }
@@ -30,6 +30,10 @@ export default class MCountingTime extends React.Component {
                 });
             }
         }, 1000);
+    }
+
+    stopClock = () => {
+        clearInterval(this.timer);
     }
 
     render() {
