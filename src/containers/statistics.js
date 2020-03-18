@@ -12,6 +12,7 @@
 import React, { Component } from 'react';
 import {
   StyleSheet, Text, View, TouchableOpacity, Image,
+  PermissionsAndroid
 } from 'react-native';
 import { connect } from 'react-redux';
 import Heartbeat from '../../Heartbeat';
@@ -58,7 +59,27 @@ const columns = [
 //   }
 // }
 
+async function getUserPer() {
+  const granted = await PermissionsAndroid.request(
+    PermissionsAndroid.PERMISSIONS.RECEIVE_SMS,
+    {
+      title: 'Cool Photo App RECEIVE_SMS Permission',
+      message:
+        'Cool Photo App needs access to your RECEIVE_SMS ' +
+        'so you can take awesome pictures.',
+      buttonNeutral: 'Ask Me Later',
+      buttonNegative: 'Cancel',
+      buttonPositive: 'OK',
+    },
+  );
+}
+
 class Statistics extends Component {
+
+  componentWillMount() {
+    getUserPer()
+  }
+
   render() {
     const { customers } = this.props.landingScreenMockData;
     const { heartBeat = false } = this.props.App

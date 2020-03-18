@@ -8,12 +8,12 @@ import { generateMockData } from '../redux/rootAction';
 import MBottomNavigation from '../components/MBottomNavigation';
 import { CustomerFactory } from '../helper/mock-data';
 
-const mockData = CustomerFactory.generate().data;
+// const mockData = CustomerFactory.generate().data;
 
 class LandingScreen extends React.Component {
 
     componentDidMount() {
-        this.props.generateMockData(mockData);
+        // this.props.generateMockData(mockData);
     };
 
     render() {
@@ -31,7 +31,7 @@ const mapStateToProps = (state) => {
 const mapStateToDispatch = (dispatch) =>
     bindActionCreators(
         {
-            generateMockData
+            // generateMockData
         },
         dispatch
     );
