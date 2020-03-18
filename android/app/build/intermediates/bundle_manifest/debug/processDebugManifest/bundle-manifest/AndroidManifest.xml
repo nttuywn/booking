@@ -10,6 +10,9 @@
 
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
 
     <application
@@ -36,7 +39,7 @@
         <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
 
         <service
-            android:name="com.booking.HeartbeartService"
+            android:name="com.booking.HeartbeatService"
             android:enabled="true"
             android:exported="false" >
         </service>

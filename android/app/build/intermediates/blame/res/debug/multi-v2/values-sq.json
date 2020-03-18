@@ -4,24 +4,7 @@
             "outputFile": "F:\\react-native\\learning\\booking\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-sq\\values-sq.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Tuyen\\.gradle\\caches\\transforms-2\\files-2.1\\35efcb1ec756d3e99b0e6f868493927b\\res\\values-sq\\values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "247",
-                        "endColumns": "187",
-                        "endOffsets": "434"
-                    },
-                    "to": {
-                        "startLines": "37",
-                        "startColumns": "4",
-                        "startOffsets": "4045",
-                        "endColumns": "187",
-                        "endOffsets": "4228"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\Tuyen\\.gradle\\caches\\transforms-2\\files-2.1\\45bfb55c86f1246f607ad2a0149b7d53\\res\\values-sq\\values.xml",
+                    "source": "C:\\Users\\Tuyen\\.gradle\\caches\\transforms-2\\files-2.1\\c34c8b9d59228651e95b16e7afc93357\\res\\values-sq\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
                         "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
@@ -35,6 +18,23 @@
                         "startOffsets": "2826,2935,3140,3279,3388,3608,3744,3900,4233,4462,4572,4778,4918,5146,5360,5455,5552",
                         "endColumns": "108,204,138,108,219,135,155,144,228,109,205,139,227,213,94,96,110",
                         "endOffsets": "2930,3135,3274,3383,3603,3739,3895,4040,4457,4567,4773,4913,5141,5355,5450,5547,5658"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Tuyen\\.gradle\\caches\\transforms-2\\files-2.1\\6957667f4ce582076c33db1e971f85e0\\res\\values-sq\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "247",
+                        "endColumns": "187",
+                        "endOffsets": "434"
+                    },
+                    "to": {
+                        "startLines": "37",
+                        "startColumns": "4",
+                        "startOffsets": "4045",
+                        "endColumns": "187",
+                        "endOffsets": "4228"
                     }
                 },
                 {

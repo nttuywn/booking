@@ -5,11 +5,11 @@ import { View } from 'react-native';
 import MCarousel from '../components/MCarousel';
 import MTime from '../components/MTime';
 import { Button } from 'react-native-paper';
-import MSMSListen from '../components/MSMSListen';
+// import MSMSListen from '../components/MSMSListen';
 
 const Home = () => (
     <View>
-        <MSMSListen />
+        {/* <MSMSListen /> */}
         <MTime />
         <MCarousel />
     </View>
