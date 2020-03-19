@@ -9,31 +9,35 @@ import { name as appName } from './app.json';
 import { Provider } from 'react-redux';
 import { mapping, light as lightTheme } from '@eva-design/eva';
 import { ApplicationProvider, Layout, Text } from 'react-native-ui-kitten';
-import { Provider as PaperProvider } from 'react-native-paper';
 import configureStore from './src/redux/configureStore';
-import { setHeartBeat } from './src/redux/rootAction';
-// import MSMSListen from './src/components/MSMSListen';
+import { setHeartBeat, addworkPostDataRequest } from './src/redux/rootAction';
 
 const store = configureStore();
 
-const MyHeadlessTask = async () => {
-    console.log('Receiving HeartBeat!');
-    store.dispatch(setHeartBeat(true));
-    setTimeout(() => {
-        store.dispatch(setHeartBeat(false));
-    }, 1000);
-};
+// const MyHeadlessTask = async (reserve) => {
+//     console.log( reserve.name, reserve.phone, reserve.date, reserve.hour, reserve.minute);
+//     store.dispatch(addworkPostDataRequest({
+//         name: reserve.name,
+//         phone: reserve.phone,
+//         date: reserve.date,
+//         hour: reserve.hour,
+//         minute: reserve.minute,
+//         status: false
+//     }))
+//     // store.dispatch(setHeartBeat(true));
+//     // setTimeout(() => {
+//     //     store.dispatch(setHeartBeat(false));
+//     // }, 1000);
+// };
 
 const RNRedux = () => (
     <Provider store={store}>
-        <PaperProvider>
-            <ApplicationProvider mapping={mapping} theme={lightTheme}>
-                <App />
-            </ApplicationProvider>
-        </PaperProvider>
+        <ApplicationProvider mapping={mapping} theme={lightTheme}>
+            <App />
+        </ApplicationProvider>
     </Provider>
 );
 
 // AppRegistry.registerHeadlessTask('Heartbeat', () => MSMSListen);
-AppRegistry.registerHeadlessTask('Heartbeat', () => MyHeadlessTask);
+// AppRegistry.registerHeadlessTask('Heartbeat', () => MyHeadlessTask);
 AppRegistry.registerComponent(appName, () => RNRedux);

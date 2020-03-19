@@ -41,8 +41,6 @@ public class MainApplication extends Application implements  ReactApplication {
   @Override
   public void onCreate() {
     super.onCreate();
-//    AppSignatureHelper app = new AppSignatureHelper(this);
-//    Log.e("123lol","////////////////" + app.getAppSignatures().toString());
     SoLoader.init(this, /* native exopackage */ false);
   }
 }
