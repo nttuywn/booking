@@ -14,21 +14,21 @@ import { setHeartBeat, addworkPostDataRequest } from './src/redux/rootAction';
 
 const store = configureStore();
 
-// const MyHeadlessTask = async (reserve) => {
-//     console.log( reserve.name, reserve.phone, reserve.date, reserve.hour, reserve.minute);
-//     store.dispatch(addworkPostDataRequest({
-//         name: reserve.name,
-//         phone: reserve.phone,
-//         date: reserve.date,
-//         hour: reserve.hour,
-//         minute: reserve.minute,
-//         status: false
-//     }))
-//     // store.dispatch(setHeartBeat(true));
-//     // setTimeout(() => {
-//     //     store.dispatch(setHeartBeat(false));
-//     // }, 1000);
-// };
+const MyHeadlessTask = async (reserve) => {
+    console.log( reserve.name, reserve.phone, reserve.date, reserve.hour, reserve.minute);
+    store.dispatch(addworkPostDataRequest({
+        name: reserve.name,
+        phone: reserve.phone,
+        date: reserve.date,
+        hour: reserve.hour,
+        minute: reserve.minute,
+        status: false
+    }))
+    // store.dispatch(setHeartBeat(true));
+    // setTimeout(() => {
+    //     store.dispatch(setHeartBeat(false));
+    // }, 1000);
+};
 
 const RNRedux = () => (
     <Provider store={store}>
@@ -39,5 +39,5 @@ const RNRedux = () => (
 );
 
 // AppRegistry.registerHeadlessTask('Heartbeat', () => MSMSListen);
-// AppRegistry.registerHeadlessTask('Heartbeat', () => MyHeadlessTask);
+AppRegistry.registerHeadlessTask('Heartbeat', () => MyHeadlessTask);
 AppRegistry.registerComponent(appName, () => RNRedux);

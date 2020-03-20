@@ -1,4 +1,4 @@
-package com.booking;
+package com.booking.sms;
 
 import android.app.Notification;
 import android.app.NotificationChannel;
@@ -13,26 +13,14 @@ import android.os.IBinder;
 
 import androidx.core.app.NotificationCompat;
 
-import com.booking.sms.SMSReceiver;
+import com.booking.MainActivity;
+import com.booking.R;
 
-public class HeartbeartService extends Service {
+public class SMSService extends Service {
 
     private static final int SERVICE_NOTIFICATION_ID = 12345;
     private static final String CHANNEL_ID = "HEARTBEAT";
 
-    private SMSReceiver mSMSreceiver;
-    private IntentFilter mIntentFilter;
-
-    private Handler handler = new Handler();
-    private Runnable runnableCode = new Runnable() {
-        @Override
-        public void run() {
-//            Intent myIntent = new Intent(getApplicationContext(), HeartbeatEventService.class);
-//            getApplicationContext().startService(myIntent);
-//            HeadlessJsTaskService.acquireWakeLockNow(getApplicationContext());
-//            handler.postDelayed(this, 2000);
-        }
-    };
     private void createNotificationChannel() {
         // Create the NotificationChannel, but only on API 26+ because
         // the NotificationChannel class is new and not in the support library
@@ -54,22 +42,15 @@ public class HeartbeartService extends Service {
     public void onCreate() {
         super.onCreate();
 
-        mSMSreceiver = new SMSReceiver();
-        mIntentFilter = new IntentFilter();
-        mIntentFilter.addAction("android.provider.Telephony.SMS_RECEIVED");
-        registerReceiver(mSMSreceiver, mIntentFilter);
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        unregisterReceiver(mSMSreceiver);
-        this.handler.removeCallbacks(this.runnableCode);
     }
 
     @Override
-    public int onStartCommand(Intent intent, int flags, int startId) {
-        this.handler.post(this.runnableCode);
+    public int onStartCommand(Intent intent, int flags, int startId) {;
         createNotificationChannel();
         Intent notificationIntent = new Intent(this, MainActivity.class);
         PendingIntent contentIntent = PendingIntent.getActivity(this, 0, notificationIntent, PendingIntent.FLAG_CANCEL_CURRENT);
@@ -83,6 +64,12 @@ public class HeartbeartService extends Service {
                 .setOngoing(true)
                 .build();
         startForeground(SERVICE_NOTIFICATION_ID, notification);
+
+        SMSReceiver mSMSreceiver = new SMSReceiver();
+        IntentFilter mIntentFilter = new IntentFilter();
+        mIntentFilter.addAction("android.provider.Telephony.SMS_RECEIVED");
+        registerReceiver(mSMSreceiver, mIntentFilter);
+
         return START_STICKY;
     }
 

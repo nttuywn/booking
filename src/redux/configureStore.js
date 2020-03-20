@@ -10,7 +10,7 @@ const configureStore = (preloadState) => {
     const store = createStore(
         rootReducer,
         preloadState,
-        applyMiddleware(sagaMiddleware, logger)
+        applyMiddleware(logger, sagaMiddleware)
     );
     sagaMiddleware.run(rootSaga);
     return store;

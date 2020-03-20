@@ -2,7 +2,7 @@ import * as CONSTANTS from '../constants';
 
 export const addworkPostDataRequest = booking => ({
     type: CONSTANTS.ADDWORK_POSTDATA_REQUEST,
-    booking
+    listBooking: [booking]
 });
 
 export const addworkPostDataResponse = response => ({
