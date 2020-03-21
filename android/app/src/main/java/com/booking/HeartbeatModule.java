@@ -18,17 +18,20 @@ import com.booking.sms.SMSRoomDB;
 import com.facebook.react.HeadlessJsTaskService;
 import com.facebook.react.bridge.Callback;
 import com.facebook.react.bridge.ReactApplicationContext;
+import com.facebook.react.bridge.ReactContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.WritableArray;
 import com.facebook.react.bridge.WritableMap;
 import com.facebook.react.bridge.WritableNativeArray;
 import com.facebook.react.bridge.WritableNativeMap;
+import com.facebook.react.modules.core.DeviceEventManagerModule;
 
 import java.lang.reflect.Array;
 import java.util.List;
 
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
 public class HeartbeatModule extends ReactContextBaseJavaModule {
 
@@ -40,6 +43,14 @@ public class HeartbeatModule extends ReactContextBaseJavaModule {
         HeartbeatModule.reactContext = reactContext;
     }
 
+    private void sendEvent(ReactContext reactContext,
+                           String eventName,
+                           @Nullable WritableMap params) {
+        reactContext
+                .getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class)
+                .emit(eventName, params);
+    }
+
     @Nonnull
     @Override
     public String getName() {
@@ -47,7 +58,7 @@ public class HeartbeatModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void startService(Callback successCallback) {
+    public void startService() {
         SMSRepository mRepository = new SMSRepository(reactContext);
 
         new Handler(Looper.getMainLooper()).post(new Runnable() {
@@ -72,7 +83,7 @@ public class HeartbeatModule extends ReactContextBaseJavaModule {
                         }
                         map.putArray("listSMS", a);
 //                        Log.e("123123123", sms.get(0).toString() + "");
-                        successCallback.invoke(map);
+                        sendEvent(reactContext, "newSMS", map);
                     }
                 });
             }

@@ -61,15 +61,6 @@ public class SMSReceiver extends BroadcastReceiver {
                     SMS data = gson.fromJson("{" + body + "}", SMS.class);
 
                     mRepository.insert(data);
-                    Bundle bundle = new Bundle();
-                    bundle.putString("name", data.name);
-                    bundle.putString("phone", data.phone);
-                    bundle.putString("day", data.day);
-                    bundle.putString("month", data.month);
-                    bundle.putString("hour", data.hour);
-                    bundle.putString("minute", data.minute);
-                    bundle.putBoolean("minute", false);
-                    myIntent.putExtras(bundle);
 
                     context.startService(myIntent);
                     HeadlessJsTaskService.acquireWakeLockNow(context);

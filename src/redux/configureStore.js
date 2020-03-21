@@ -16,4 +16,4 @@ const configureStore = (preloadState) => {
     return store;
 }
 
-export default configureStore;
+export default store = configureStore();
