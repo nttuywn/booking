@@ -1,6 +1,7 @@
 package com.booking.sms;
 
 import android.annotation.SuppressLint;
+import android.app.Application;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.BroadcastReceiver;
@@ -18,32 +19,22 @@ import com.booking.utils.ChatHeadPopup;
 import com.google.gson.*;
 import android.widget.Toast;
 
+import androidx.lifecycle.LiveData;
+
 import com.facebook.react.HeadlessJsTaskService;
+
+import java.util.List;
 
 public class SMSReceiver extends BroadcastReceiver {
     public static final String SMS_EXTRA_NAME = "pdus";
-
-    private void createNotificationChannel(Context context) {
-        // Create the NotificationChannel, but only on API 26+ because
-        // the NotificationChannel class is new and not in the support library
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            int importance = NotificationManager.IMPORTANCE_DEFAULT;
-            NotificationChannel channel = new NotificationChannel("SMS_RECIEVER", "HEARTBEAT", importance);
-            channel.setDescription("CHANEL DESCRIPTION");
-            channel.enableLights(true);
-            channel.setLightColor(Color.RED);
-            channel.setVibrationPattern(new long[]{0, 1000, 500, 1000});
-            channel.enableVibration(true);
-            NotificationManager notificationManager = context.getSystemService(NotificationManager.class);
-            notificationManager.createNotificationChannel(channel);
-        }
-    }
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
     public void onReceive(Context context, Intent intent) {
         // Get the SMS map from Intent
         Bundle extras = intent.getExtras();
+
+        SMSRepository mRepository = new SMSRepository(context);
 
         String messages = "";
 
@@ -67,20 +58,23 @@ public class SMSReceiver extends BroadcastReceiver {
 
                 Gson gson = new GsonBuilder().create();
                 if(body.contains("\"name\":")) {
-                    Reserve data = gson.fromJson("{" + body + "}", Reserve.class);
+                    SMS data = gson.fromJson("{" + body + "}", SMS.class);
 
+                    mRepository.insert(data);
                     Bundle bundle = new Bundle();
                     bundle.putString("name", data.name);
                     bundle.putString("phone", data.phone);
-                    bundle.putString("date", data.date);
+                    bundle.putString("day", data.day);
+                    bundle.putString("month", data.month);
                     bundle.putString("hour", data.hour);
                     bundle.putString("minute", data.minute);
+                    bundle.putBoolean("minute", false);
                     myIntent.putExtras(bundle);
 
                     context.startService(myIntent);
                     HeadlessJsTaskService.acquireWakeLockNow(context);
-                    ChatHeadPopup chatHead = new ChatHeadPopup();
-                    chatHead.create(context);
+//                    ChatHeadPopup chatHead = new ChatHeadPopup();
+//                    chatHead.create(context);
                 }
 
                 // Here you can add any your code to work with incoming SMS

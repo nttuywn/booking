@@ -10,20 +10,23 @@ import { Provider } from 'react-redux';
 import { mapping, light as lightTheme } from '@eva-design/eva';
 import { ApplicationProvider, Layout, Text } from 'react-native-ui-kitten';
 import configureStore from './src/redux/configureStore';
-import { setHeartBeat, addworkPostDataRequest } from './src/redux/rootAction';
+import { setHeartBeat, addworkPostDataRequest, homeGetBookingListRequest } from './src/redux/rootAction';
 
 const store = configureStore();
 
 const MyHeadlessTask = async (reserve) => {
-    console.log( reserve.name, reserve.phone, reserve.date, reserve.hour, reserve.minute);
-    store.dispatch(addworkPostDataRequest({
-        name: reserve.name,
-        phone: reserve.phone,
-        date: reserve.date,
-        hour: reserve.hour,
-        minute: reserve.minute,
-        status: false
-    }))
+    // console.log(JSON.stringify(reserve))
+    console.log( reserve.name, reserve.phone, reserve.month, reserve.day, reserve.hour, reserve.minute, reserve.status);
+    // store.dispatch(addworkPostDataRequest({
+    //     name: reserve.name,
+    //     phone: reserve.phone,
+    //     month: reserve.month,
+    //     day: reserve.day,
+    //     hour: reserve.hour,
+    //     minute: reserve.minute,
+    //     status: reserve.status,
+    // }))
+    store.dispatch(homeGetBookingListRequest())
     // store.dispatch(setHeartBeat(true));
     // setTimeout(() => {
     //     store.dispatch(setHeartBeat(false));

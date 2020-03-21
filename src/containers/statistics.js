@@ -90,7 +90,7 @@ class Statistics extends Component {
           <Image source={heart} style={{ width: imageSize, height: imageSize }} resizeMode="contain" />
         </View>
         <View style={styles.view}>
-          <TouchableOpacity style={styles.button} onPress={() => Heartbeat.startService()}>
+          <TouchableOpacity style={styles.button} onPress={() => Heartbeat.startService(array => console.log(`--------`, JSON.stringify(array)))}>
             <Text style={styles.instructions}>Start</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.button} onPress={() => Heartbeat.stopService()}>

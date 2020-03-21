@@ -1,11 +1,12 @@
 import { call, put, takeLatest, select, all } from 'redux-saga/effects';
 import * as CONSTANTS from '../constants';
 import * as ACTIONS from '../../redux/rootAction'
+import Heartbeat from '../../../Heartbeat';
 
 export function* HomeBookingList() {
     yield takeLatest(CONSTANTS.HOME_GET_BOOKINGLIST_REQUEST, function* (action) {
         try {
-            // const result = yield call(getData);
+            // const result = yield call(Heartbeat.startService);
             yield put(ACTIONS.homeGetBookingListResponse([]));
             // yield put(ACTIONS.ResponseSingup(result.data['message']));
         } catch (e) {

@@ -37,7 +37,7 @@ class MCard extends React.Component {
                     subtitle={customer.phone}
                     left={(props) => <Avatar.Image {...props} source={{ uri: 'http://images.summitmedia-digital.com/cosmo/images/2018/11/27/blackpink-lisa-1543288094.jpg' }} />} />
                 <Card.Content>
-                    <Text category="h6">{`Ngày hẹn: ${customer.date}`}</Text>
+                    <Text category="h6">{`Ngày hẹn: ${customer.day}/${customer.month}`}</Text>
                     <Text category="h6">{`Thời gian hẹn: ${customer.hour}:${customer.minute}`}</Text>
                     <Text category="h6">Thời gian bắt đầu: 14:05</Text>
                     {this.state.start ? <MCountingTime ref={this.clock}/> : <Text category="h6">Công việc chưa bắt đầu</Text>}
