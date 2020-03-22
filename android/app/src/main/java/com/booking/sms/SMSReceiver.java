@@ -1,10 +1,12 @@
 package com.booking.sms;
 
 import android.annotation.SuppressLint;
+import android.app.ActivityManager;
 import android.app.Application;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.BroadcastReceiver;
+import android.content.ComponentName;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
@@ -17,8 +19,11 @@ import com.booking.HeartbeatEventService;
 import com.booking.Reserve;
 import com.booking.utils.ChatHeadPopup;
 import com.google.gson.*;
+
+import android.util.Log;
 import android.widget.Toast;
 
+import androidx.annotation.RequiresApi;
 import androidx.lifecycle.LiveData;
 
 import com.facebook.react.HeadlessJsTaskService;
@@ -28,6 +33,7 @@ import java.util.List;
 public class SMSReceiver extends BroadcastReceiver {
     public static final String SMS_EXTRA_NAME = "pdus";
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
     @SuppressLint("ClickableViewAccessibility")
     @Override
     public void onReceive(Context context, Intent intent) {
@@ -42,36 +48,35 @@ public class SMSReceiver extends BroadcastReceiver {
             // Get received SMS array
             Object[] smsExtra = (Object[]) extras.get(SMS_EXTRA_NAME);
 
-            // Get ContentResolver object for pushing encrypted SMS to the incoming folder
-            ContentResolver contentResolver = context.getContentResolver();
-
-            for (int i = 0; i < smsExtra.length; ++i) {
-                SmsMessage sms = SmsMessage.createFromPdu((byte[]) smsExtra[i]);
-
+            for (Object o : smsExtra) {
+                SmsMessage sms = SmsMessage.createFromPdu((byte[]) o);
                 String body = sms.getMessageBody().toString();
-                String address = sms.getOriginatingAddress();
+                messages = body + "\n";
+            }
 
-                messages += "SMS from " + address + " :\n";
-                messages += body + "\n";
+//            Intent myIntent = new Intent(context, HeartbeatEventService.class);
 
-                Intent myIntent = new Intent(context, HeartbeatEventService.class);
+            Gson gson = new GsonBuilder().create();
+            if(messages.contains("\"name\":")) {
+                SMS data = gson.fromJson("{" + messages + "}", SMS.class);
 
-                Gson gson = new GsonBuilder().create();
-                if(body.contains("\"name\":")) {
-                    SMS data = gson.fromJson("{" + body + "}", SMS.class);
+                mRepository.insert(data);
+//                Bundle bundle = new Bundle();
+//                bundle.putString("name", data.name);
+//                bundle.putString("phone", data.phone);
+//                bundle.putString("day", data.day);
+//                bundle.putString("month", data.month);
+//                bundle.putString("hour", data.hour);
+//                bundle.putString("minute", data.minute);
+//                bundle.putBoolean("minute", false);
+//                myIntent.putExtras(bundle);
 
-                    mRepository.insert(data);
-
-                    context.startService(myIntent);
-                    HeadlessJsTaskService.acquireWakeLockNow(context);
-//                    ChatHeadPopup chatHead = new ChatHeadPopup();
-//                    chatHead.create(context);
+//                context.startService(myIntent);
+//                HeadlessJsTaskService.acquireWakeLockNow(context);
+                if(!isAppForground(context)){
+                    ChatHeadPopup chatHead = new ChatHeadPopup();
+                    chatHead.create(context);
                 }
-
-                // Here you can add any your code to work with incoming SMS
-                // I added encrypting of all received SMS
-
-//                putSmsToDatabase( contentResolver, sms );
             }
 
             // Display SMS message
@@ -83,6 +88,15 @@ public class SMSReceiver extends BroadcastReceiver {
         // If you uncomment the next line then received SMS will not be put to incoming.
         // Be careful!
         // this.abortBroadcast();
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.M)
+    public boolean isAppForground(Context mContext) {
+
+        ActivityManager am = (ActivityManager) mContext.getSystemService(Context.ACTIVITY_SERVICE);
+        ActivityManager.RecentTaskInfo tasks = new ActivityManager.RecentTaskInfo();
+        if (!tasks.origActivity.getPackageName().equals(mContext.getPackageName())) return false;
+        else return true;
     }
 
 }

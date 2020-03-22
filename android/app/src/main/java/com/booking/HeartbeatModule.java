@@ -37,6 +37,8 @@ public class HeartbeatModule extends ReactContextBaseJavaModule {
 
     public static final String REACT_CLASS = "Heartbeat";
     private static ReactApplicationContext reactContext;
+    private static WritableMap map;
+    private static WritableArray a;
 
     public HeartbeatModule(@Nonnull ReactApplicationContext reactContext) {
         super(reactContext);
@@ -67,8 +69,8 @@ public class HeartbeatModule extends ReactContextBaseJavaModule {
                 mRepository.getAllSMS().observe((LifecycleOwner) reactContext.getCurrentActivity(), new Observer<List<SMS>>() {
                     @Override
                     public void onChanged(List<SMS> listSms) {
-                        WritableMap map = new WritableNativeMap();
-                        WritableArray a = new WritableNativeArray();
+                        map = new WritableNativeMap();
+                        a = new WritableNativeArray();
                         for (SMS sms : listSms) {
                             WritableMap b = new WritableNativeMap();
                             b.putString("name", sms.name);
@@ -82,14 +84,13 @@ public class HeartbeatModule extends ReactContextBaseJavaModule {
                             a.pushMap(b);
                         }
                         map.putArray("listSMS", a);
-//                        Log.e("123123123", sms.get(0).toString() + "");
                         sendEvent(reactContext, "newSMS", map);
                     }
                 });
             }
         });
 
-//        reactContext.startService(new Intent(reactContext, HeartbeartService.class));
+        reactContext.startService(new Intent(reactContext, HeartbeartService.class));
     }
 
     @ReactMethod

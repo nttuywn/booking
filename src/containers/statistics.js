@@ -15,8 +15,8 @@ import {
   PermissionsAndroid
 } from 'react-native';
 import { connect } from 'react-redux';
+import MVideo from '../native-module/MVideo'
 import Heartbeat from '../../Heartbeat';
-import heart from '../../heart.png';
 
 const columns = [
   {
@@ -82,15 +82,13 @@ class Statistics extends Component {
 
   render() {
     const { customers } = this.props.landingScreenMockData;
-    const { heartBeat = false } = this.props.App
-    const imageSize = heartBeat ? 150 : 100;
     return (
       <View style={styles.container}>
         <View style={styles.view}>
-          <Image source={heart} style={{ width: imageSize, height: imageSize }} resizeMode="contain" />
+          
         </View>
         <View style={styles.view}>
-          <TouchableOpacity style={styles.button} onPress={() => Heartbeat.startService(array => console.log(`--------`, JSON.stringify(array)))}>
+          <TouchableOpacity style={styles.button} onPress={() => MVideo.startService()}>
             <Text style={styles.instructions}>Start</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.button} onPress={() => Heartbeat.stopService()}>

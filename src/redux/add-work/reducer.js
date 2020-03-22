@@ -5,9 +5,6 @@ const db = new Database();
 
 export const addWork = (state = {}, { type, booking }) => {
     switch (type) {
-        case CONSTANTS.ADDWORK_POSTDATA_REQUEST: {
-            return {...state};
-        }
         case CONSTANTS.ADDWORK_POSTDATA_RESPONSE: {
             return {...state};
         }

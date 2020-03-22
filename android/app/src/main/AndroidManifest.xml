@@ -45,7 +45,6 @@
         </receiver>
 
         <service android:name="com.booking.HeartbeatEventService"/>
-        <service android:name="com.booking.SMSEventService"/>
 
         <service
             android:name="com.booking.HeartbeartService"

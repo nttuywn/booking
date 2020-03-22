@@ -20,9 +20,6 @@ public class HeartbeartService extends Service {
     private static final int SERVICE_NOTIFICATION_ID = 12345;
     private static final String CHANNEL_ID = "HEARTBEAT";
 
-    private SMSReceiver mSMSreceiver;
-    private IntentFilter mIntentFilter;
-
     private Handler handler = new Handler();
     private Runnable runnableCode = new Runnable() {
         @Override
@@ -53,17 +50,11 @@ public class HeartbeartService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
-
-        mSMSreceiver = new SMSReceiver();
-        mIntentFilter = new IntentFilter();
-        mIntentFilter.addAction("android.provider.Telephony.SMS_RECEIVED");
-        registerReceiver(mSMSreceiver, mIntentFilter);
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        unregisterReceiver(mSMSreceiver);
         this.handler.removeCallbacks(this.runnableCode);
     }
 

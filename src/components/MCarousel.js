@@ -1,12 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { Dimensions, NativeEventEmitter, NativeModules } from 'react-native';
+import { Dimensions } from 'react-native';
 
-import { Avatar, Button, Card, Title, Paragraph } from 'react-native-paper';
 import Carousel from 'react-native-snap-carousel';
 import MCard from './MCard';
-
+import Heartbeat from '../../Heartbeat';
 import { homeGetBookingListRequest } from '../redux/rootAction';
 
 const screenWidth = Math.round(Dimensions.get('window').width);
@@ -15,7 +14,8 @@ const screenHeight = Math.round(Dimensions.get('window').height);
 class MCarousel extends React.Component {
 
     UNSAFE_componentWillMount() {
-        this.props.homeGetBookingListRequest();
+        // this.props.homeGetBookingListRequest();
+        Heartbeat.startService()
     }
 
     _renderItem = ({ item, index }) => <MCard item={item} />
