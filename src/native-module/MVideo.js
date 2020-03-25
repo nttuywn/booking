@@ -1,5 +1,3 @@
-import { NativeModules } from 'react-native';
+import { NativeModules, requireNativeComponent } from 'react-native';
 
-const { MVideo } = NativeModules;
-
-export default MVideo;
+module.exports = requireNativeComponent('MVideo');

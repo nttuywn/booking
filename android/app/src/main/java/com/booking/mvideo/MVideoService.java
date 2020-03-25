@@ -1,4 +1,4 @@
-package com.booking;
+package com.booking.mvideo;
 
 import android.app.Notification;
 import android.app.NotificationChannel;
@@ -6,36 +6,27 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.os.Build;
 import android.os.Handler;
 import android.os.IBinder;
 
 import androidx.core.app.NotificationCompat;
 
-import com.booking.sms.SMSReceiver;
+import com.booking.MainActivity;
+import com.booking.R;
 
-public class HeartbeartService extends Service {
+public class MVideoService extends Service {
 
     private static final int SERVICE_NOTIFICATION_ID = 12345;
-    private static final String CHANNEL_ID = "HEARTBEAT";
+    private static final String CHANNEL_ID = "MVideo";
 
-    private Handler handler = new Handler();
-    private Runnable runnableCode = new Runnable() {
-        @Override
-        public void run() {
-//            Intent myIntent = new Intent(getApplicationContext(), HeartbeatEventService.class);
-//            getApplicationContext().startService(myIntent);
-//            HeadlessJsTaskService.acquireWakeLockNow(getApplicationContext());
-//            handler.postDelayed(this, 2000);
-        }
-    };
+
     private void createNotificationChannel() {
         // Create the NotificationChannel, but only on API 26+ because
         // the NotificationChannel class is new and not in the support library
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             int importance = NotificationManager.IMPORTANCE_DEFAULT;
-            NotificationChannel channel = new NotificationChannel(CHANNEL_ID, "HEARTBEAT", importance);
+            NotificationChannel channel = new NotificationChannel(CHANNEL_ID, "MVideo", importance);
             channel.setDescription("CHANEL DESCRIPTION");
             NotificationManager notificationManager = getSystemService(NotificationManager.class);
             notificationManager.createNotificationChannel(channel);
@@ -55,12 +46,12 @@ public class HeartbeartService extends Service {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        this.handler.removeCallbacks(this.runnableCode);
+
     }
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        this.handler.post(this.runnableCode);
+
         createNotificationChannel();
         Intent notificationIntent = new Intent(this, MainActivity.class);
         PendingIntent contentIntent = PendingIntent.getActivity(this, 0, notificationIntent, PendingIntent.FLAG_CANCEL_CURRENT);

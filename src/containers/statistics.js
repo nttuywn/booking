@@ -84,17 +84,16 @@ class Statistics extends Component {
     const { customers } = this.props.landingScreenMockData;
     return (
       <View style={styles.container}>
-        <View style={styles.view}>
-          
-        </View>
-        <View style={styles.view}>
-          <TouchableOpacity style={styles.button} onPress={() => MVideo.startService()}>
+        <MVideo style={styles.myComponentStyle}/>
+        {/* <View style={styles.view}>
+          <TouchableOpacity style={styles.button} onPress={() => MVideo.open()}>
+            <MVideo />
             <Text style={styles.instructions}>Start</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.button} onPress={() => Heartbeat.stopService()}>
             <Text style={styles.instructions}>Stop</Text>
           </TouchableOpacity>
-        </View>
+        </View> */}
       </View>
     );
   }
@@ -103,41 +102,18 @@ class Statistics extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'white',
-  },
-  view: {
-    flex: 0.5,
+    backgroundColor: '#FF0000',
     justifyContent: 'center',
     alignItems: 'center',
   },
-  button: {
-    backgroundColor: 'gray',
-    padding: 10,
-    margin: 10,
-  },
-  text: {
-    fontSize: 20,
-    color: 'white',
+  myComponentStyle: {
+    width:200,
+    height:80,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor:"#FFFFFF"
   },
 });
-
-// const styles = StyleSheet.create({
-//   container: {
-//     ...Platform.select({
-//       ios: {
-//         paddingTop: 20
-//       },
-//       android: {}
-//     }),
-//   },
-//   title: {
-//     fontSize: 18,
-//     padding: 10,
-//     textAlign: 'center'
-//   }
-// });
 
 const mapStateToProps = (state) => {
   const { landingScreenMockData, App } = state;
