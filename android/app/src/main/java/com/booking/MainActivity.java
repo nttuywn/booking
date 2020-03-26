@@ -1,14 +1,11 @@
 package com.booking;
 
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
-
-import com.booking.sms.SMSReceiver;
-import com.booking.sms.SMSService;
+import com.booking.mvideo.MVideoService;
 import com.facebook.react.ReactActivity;
 
 public class MainActivity extends ReactActivity {
@@ -38,4 +35,9 @@ public class MainActivity extends ReactActivity {
     }
   }
 
+  @Override
+  protected void onDestroy() {
+    super.onDestroy();
+    stopService(new Intent(this, MVideoService.class));
+  }
 }

@@ -5,19 +5,31 @@ import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
+import android.content.Context;
 import android.content.Intent;
+import android.media.AudioManager;
+import android.os.Binder;
 import android.os.Build;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
+import android.support.v4.media.MediaBrowserCompat;
+import android.widget.RemoteViews;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
+import androidx.media.MediaBrowserServiceCompat;
 
 import com.booking.MainActivity;
 import com.booking.R;
 
-public class MVideoService extends Service {
+import java.util.List;
 
-    private static final int SERVICE_NOTIFICATION_ID = 12345;
+public class MVideoService extends MediaBrowserServiceCompat implements AudioManager.OnAudioFocusChangeListener {
+
+    private static final int SERVICE_NOTIFICATION_ID = 789;
     private static final String CHANNEL_ID = "MVideo";
 
 
@@ -34,11 +46,6 @@ public class MVideoService extends Service {
     }
 
     @Override
-    public IBinder onBind(Intent intent) {
-        return null;
-    }
-
-    @Override
     public void onCreate() {
         super.onCreate();
     }
@@ -46,25 +53,52 @@ public class MVideoService extends Service {
     @Override
     public void onDestroy() {
         super.onDestroy();
+        NotificationManager manager = (NotificationManager) getApplicationContext().getSystemService(Context.NOTIFICATION_SERVICE);
+        manager.cancel(SERVICE_NOTIFICATION_ID);
+    }
+
+    @Nullable
+    @Override
+    public IBinder onBind(Intent intent) {
+        return null;
+    }
+
+    @Nullable
+    @Override
+    public BrowserRoot onGetRoot(@NonNull String clientPackageName, int clientUid, @Nullable Bundle rootHints) {
+        return null;
+    }
+
+    @Override
+    public void onLoadChildren(@NonNull String parentId, @NonNull Result<List<MediaBrowserCompat.MediaItem>> result) {
 
     }
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
 
+        RemoteViews remoteView = new RemoteViews(getApplicationContext().getPackageName(), R.layout.video_notification);
+
+        PendingIntent openAppIntent = PendingIntent.getActivity(this, 0, new Intent(this, MainActivity.class), PendingIntent.FLAG_UPDATE_CURRENT);
+        remoteView.setOnClickPendingIntent(R.id.open_app_btn, openAppIntent);
+
+        PendingIntent stopVideoIntent = PendingIntent.getService(this, 0, new Intent(this, MVideoService.class), 0);
+        remoteView.setOnClickPendingIntent(R.id.stop_player_btn, stopVideoIntent);
+
         createNotificationChannel();
-        Intent notificationIntent = new Intent(this, MainActivity.class);
-        PendingIntent contentIntent = PendingIntent.getActivity(this, 0, notificationIntent, PendingIntent.FLAG_CANCEL_CURRENT);
         Notification notification = new NotificationCompat.Builder(this, CHANNEL_ID)
-                .setPriority(Notification.PRIORITY_MAX)
-                .setContentTitle("Quản Lý Đặt Chỗ")
-                .setContentText("Đang chạy...")
-                .setSmallIcon(R.mipmap.ic_launcher)
-                .setFullScreenIntent(contentIntent,true)
+                .setContent(remoteView)
+                .setSmallIcon(android.R.drawable.sym_def_app_icon)
+                .setContentIntent(openAppIntent)
                 .setOngoing(true)
                 .build();
         startForeground(SERVICE_NOTIFICATION_ID, notification);
         return START_STICKY;
+    }
+
+    @Override
+    public void onAudioFocusChange(int focusChange) {
+
     }
 
 }

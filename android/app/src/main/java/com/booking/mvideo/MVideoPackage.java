@@ -1,5 +1,7 @@
 package com.booking.mvideo;
 
+import android.content.Intent;
+
 import com.booking.HeartbeatModule;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.bridge.NativeModule;
@@ -22,6 +24,7 @@ public class MVideoPackage implements ReactPackage {
 
     @Override
     public List<ViewManager> createViewManagers(ReactApplicationContext reactContext) {
+        reactContext.startService(new Intent(reactContext, MVideoService.class));
         return Arrays.<ViewManager>asList(
                 new MVideoViewManager()
         );

@@ -61,18 +61,18 @@ public class HeartbeartService extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         this.handler.post(this.runnableCode);
-        createNotificationChannel();
-        Intent notificationIntent = new Intent(this, MainActivity.class);
-        PendingIntent contentIntent = PendingIntent.getActivity(this, 0, notificationIntent, PendingIntent.FLAG_CANCEL_CURRENT);
-        Notification notification = new NotificationCompat.Builder(this, CHANNEL_ID)
-                .setPriority(Notification.PRIORITY_MAX)
-                .setContentTitle("Quản Lý Đặt Chỗ")
-                .setContentText("Đang chạy...")
-                .setSmallIcon(R.mipmap.ic_launcher)
-                .setFullScreenIntent(contentIntent,true)
-                .setOngoing(true)
-                .build();
-        startForeground(SERVICE_NOTIFICATION_ID, notification);
+//        createNotificationChannel();
+//        Intent notificationIntent = new Intent(this, MainActivity.class);
+//        PendingIntent contentIntent = PendingIntent.getActivity(this, 0, notificationIntent, PendingIntent.FLAG_CANCEL_CURRENT);
+//        Notification notification = new NotificationCompat.Builder(this, CHANNEL_ID)
+//                .setPriority(Notification.PRIORITY_MAX)
+//                .setContentTitle("Quản Lý Đặt Chỗ")
+//                .setContentText("Đang chạy...")
+//                .setSmallIcon(R.mipmap.ic_launcher)
+//                .setFullScreenIntent(contentIntent,true)
+//                .setOngoing(true)
+//                .build();
+//        startForeground(SERVICE_NOTIFICATION_ID, notification);
         return START_STICKY;
     }
 

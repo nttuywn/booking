@@ -12,11 +12,11 @@
 import React, { Component } from 'react';
 import {
   StyleSheet, Text, View, TouchableOpacity, Image,
-  PermissionsAndroid
+  PermissionsAndroid,
+  Dimensions
 } from 'react-native';
 import { connect } from 'react-redux';
 import MVideo from '../native-module/MVideo'
-import Heartbeat from '../../Heartbeat';
 
 const columns = [
   {
@@ -77,7 +77,8 @@ async function getUserPer() {
 class Statistics extends Component {
 
   componentWillMount() {
-    getUserPer()
+    // getUserPer()
+  
   }
 
   render() {
@@ -107,8 +108,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   myComponentStyle: {
-    width:200,
-    height:80,
+    width: Math.round(Dimensions.get('window').width),
+    height: Math.round(Dimensions.get('window').height) / 3,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor:"#FFFFFF"

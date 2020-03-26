@@ -1,5 +1,6 @@
 package com.booking.mvideo;
 
+import android.app.Activity;
 import android.os.Build;
 
 import androidx.annotation.NonNull;
@@ -22,6 +23,6 @@ public class MVideoViewManager extends SimpleViewManager<MVideo> {
     @NonNull
     @Override
     protected MVideo createViewInstance(@NonNull ThemedReactContext reactContext) {
-        return new MVideo(reactContext);
+        return new MVideo(reactContext, reactContext.getCurrentActivity());
     }
 }
