@@ -2,11 +2,15 @@ package com.booking.mvideo;
 
 import android.app.Activity;
 import android.content.Context;
+import android.media.AudioManager;
 import android.net.Uri;
 import android.os.Build;
 import android.view.Surface;
+import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
+
+import com.google.android.exoplayer2.C;
 import com.google.android.exoplayer2.ExoPlaybackException;
 import com.google.android.exoplayer2.ExoPlayerFactory;
 import com.google.android.exoplayer2.Format;
@@ -14,6 +18,7 @@ import com.google.android.exoplayer2.PlaybackParameters;
 import com.google.android.exoplayer2.Player;
 import com.google.android.exoplayer2.SimpleExoPlayer;
 import com.google.android.exoplayer2.Timeline;
+import com.google.android.exoplayer2.audio.AudioAttributes;
 import com.google.android.exoplayer2.decoder.DecoderCounters;
 import com.google.android.exoplayer2.source.LoopingMediaSource;
 import com.google.android.exoplayer2.source.MediaSource;
@@ -32,16 +37,9 @@ import com.google.android.exoplayer2.util.Util;
 import com.google.android.exoplayer2.video.VideoRendererEventListener;
 
 @RequiresApi(api = Build.VERSION_CODES.M)
-class MVideo extends PlayerView implements VideoRendererEventListener {
+class MVideo extends PlayerView implements VideoRendererEventListener, AudioManager.OnAudioFocusChangeListener {
 
-    private static final String URI_SAMPLE = "https://manifest.googlevideo.com/api/manifest/hls_variant/expire/1585227366/ei/BlJ8Xq7NBILugQO3hagQ" +
-            "/ip/118.71.224.167/id/Dx5qFachd3A.425/source/yt_live_broadca" +
-            "st/requiressl/yes/hfr/1/maudio/1/vprv/1/go/1/keepalive/" +
-            "yes/beids/9466588/dover/11/itag/0/playlist_type/DVR/sparams/" +
-            "expire%2Cei%2Cip%2Cid%2Csource%2Crequiressl%2Chfr%2Cmaudio%2" +
-            "Cvprv%2Cgo%2Citag%2Cplaylist_type/sig/ADKhkGMwRQIhAJt6kfxqc0" +
-            "uo0lJ-IsMfUEkHEJKnrWOcuHNZXYW0IuAaAiBeD5miHU02yABxCFEaN849ti" +
-            "Kmklg2RLOrdQVsKLYUlQ%3D%3D/file/index.m3u8";
+    private static final String URI_SAMPLE = "https://vn.dungmori.com/720p/kanji-1.2.mp4/index.m3u8?58";
 
     private SimpleExoPlayer player;
     private Activity activity;
@@ -80,6 +78,12 @@ class MVideo extends PlayerView implements VideoRendererEventListener {
 
         // 2. Create the player
         player = ExoPlayerFactory.newSimpleInstance(context, trackSelector);
+        player.setAudioAttributes(
+                new AudioAttributes
+                        .Builder()
+                        .setContentType(C.CONTENT_TYPE_MUSIC)
+                        .setUsage(C.USAGE_MEDIA)
+                        .build());
 
         ////Set media controller
         this.setUseController(true);//set to true or false to see controllers
@@ -201,4 +205,38 @@ class MVideo extends PlayerView implements VideoRendererEventListener {
 
     }
 
+    @Override
+    public void onAudioFocusChange(int focusChange) {
+        switch( focusChange ) {
+            case AudioManager.AUDIOFOCUS_LOSS: {
+                Toast.makeText(activity, "asd", Toast.LENGTH_SHORT).show();
+                if( player.getPlayWhenReady() ) {
+                    player.stop();
+                }
+                break;
+            }
+            case AudioManager.AUDIOFOCUS_LOSS_TRANSIENT: {
+                Toast.makeText(activity, "asd123", Toast.LENGTH_SHORT).show();
+                player.setPlayWhenReady(false);
+                break;
+            }
+            case AudioManager.AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK: {
+                Toast.makeText(activity, "asd456", Toast.LENGTH_SHORT).show();
+                if( player != null ) {
+                    player.setVolume(0.3f);
+                }
+                break;
+            }
+            case AudioManager.AUDIOFOCUS_GAIN: {
+                Toast.makeText(activity, "asd789", Toast.LENGTH_SHORT).show();
+                if( player != null ) {
+                    if( !player.getPlayWhenReady() ) {
+                        player.setPlayWhenReady(true);
+                    }
+                    player.setVolume(1.0f);
+                }
+                break;
+            }
+        }
+    }
 }

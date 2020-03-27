@@ -7,27 +7,19 @@ import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
-import android.media.AudioManager;
 import android.os.Binder;
 import android.os.Build;
-import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
-import android.support.v4.media.MediaBrowserCompat;
 import android.widget.RemoteViews;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
-import androidx.media.MediaBrowserServiceCompat;
 
 import com.booking.MainActivity;
 import com.booking.R;
 
-import java.util.List;
-
-public class MVideoService extends MediaBrowserServiceCompat implements AudioManager.OnAudioFocusChangeListener {
+public class MVideoService extends Service {
 
     private static final int SERVICE_NOTIFICATION_ID = 789;
     private static final String CHANNEL_ID = "MVideo";
@@ -46,6 +38,11 @@ public class MVideoService extends MediaBrowserServiceCompat implements AudioMan
     }
 
     @Override
+    public IBinder onBind(Intent intent) {
+        return null;
+    }
+
+    @Override
     public void onCreate() {
         super.onCreate();
     }
@@ -55,23 +52,6 @@ public class MVideoService extends MediaBrowserServiceCompat implements AudioMan
         super.onDestroy();
         NotificationManager manager = (NotificationManager) getApplicationContext().getSystemService(Context.NOTIFICATION_SERVICE);
         manager.cancel(SERVICE_NOTIFICATION_ID);
-    }
-
-    @Nullable
-    @Override
-    public IBinder onBind(Intent intent) {
-        return null;
-    }
-
-    @Nullable
-    @Override
-    public BrowserRoot onGetRoot(@NonNull String clientPackageName, int clientUid, @Nullable Bundle rootHints) {
-        return null;
-    }
-
-    @Override
-    public void onLoadChildren(@NonNull String parentId, @NonNull Result<List<MediaBrowserCompat.MediaItem>> result) {
-
     }
 
     @Override
@@ -94,11 +74,6 @@ public class MVideoService extends MediaBrowserServiceCompat implements AudioMan
                 .build();
         startForeground(SERVICE_NOTIFICATION_ID, notification);
         return START_STICKY;
-    }
-
-    @Override
-    public void onAudioFocusChange(int focusChange) {
-
     }
 
 }
