@@ -5,13 +5,19 @@ import android.content.Context;
 import android.media.AudioManager;
 import android.net.Uri;
 import android.os.Build;
+import android.os.Bundle;
+import android.support.v4.media.MediaBrowserCompat;
 import android.view.Surface;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
+import androidx.media.MediaBrowserServiceCompat;
 
 import com.google.android.exoplayer2.C;
 import com.google.android.exoplayer2.ExoPlaybackException;
+import com.google.android.exoplayer2.ExoPlayer;
 import com.google.android.exoplayer2.ExoPlayerFactory;
 import com.google.android.exoplayer2.Format;
 import com.google.android.exoplayer2.PlaybackParameters;
@@ -35,6 +41,8 @@ import com.google.android.exoplayer2.upstream.DefaultBandwidthMeter;
 import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory;
 import com.google.android.exoplayer2.util.Util;
 import com.google.android.exoplayer2.video.VideoRendererEventListener;
+
+import java.util.List;
 
 @RequiresApi(api = Build.VERSION_CODES.M)
 class MVideo extends PlayerView implements VideoRendererEventListener, AudioManager.OnAudioFocusChangeListener {
@@ -70,30 +78,27 @@ class MVideo extends PlayerView implements VideoRendererEventListener, AudioMana
 ////        Uri mp4VideoUri = Uri.parse(Environment.getExternalStorageDirectory().getAbsolutePath()+urimp4);
 
 
-        DefaultBandwidthMeter bandwidthMeter = new DefaultBandwidthMeter(); //test
-
-        TrackSelection.Factory videoTrackSelectionFactory = new AdaptiveTrackSelection.Factory(bandwidthMeter);
-        TrackSelector trackSelector =
-                new DefaultTrackSelector(videoTrackSelectionFactory);
+//        TrackSelection.Factory videoTrackSelectionFactory = new AdaptiveTrackSelection.Factory();
+//        TrackSelector trackSelector = new TrackSelector(videoTrackSelectionFactory);
 
         // 2. Create the player
-        player = ExoPlayerFactory.newSimpleInstance(context, trackSelector);
+        player = new SimpleExoPlayer.Builder(context).build();
+
         player.setAudioAttributes(
                 new AudioAttributes
                         .Builder()
                         .setContentType(C.CONTENT_TYPE_MUSIC)
                         .setUsage(C.USAGE_MEDIA)
-                        .build());
+                        .build(), true);
 
         ////Set media controller
         this.setUseController(true);//set to true or false to see controllers
-        this.requestFocus();
         // Bind the player to the view.
         this.setPlayer(player);
 
         // Measures bandwidth during playback. Can be null if not required.
         // Produces DataSource instances through which media data is loaded.
-        DataSource.Factory dataSourceFactory = new DefaultDataSourceFactory(context, Util.getUserAgent(context, "exoplayer2example"), bandwidthMeter);
+        DataSource.Factory dataSourceFactory = new DefaultDataSourceFactory(context, Util.getUserAgent(context, "exoplayer2example"));
         // This is the MediaSource representing the media to be played.
 //        MediaSource videoSource = new ExtractorMediaSource.Factory(dataSourceFactory).createMediaSource(liveStreamUri);
 
@@ -108,18 +113,11 @@ class MVideo extends PlayerView implements VideoRendererEventListener, AudioMana
         //        MediaSource videoSource = new ExtractorMediaSource(mp4VideoUri, dataSourceFactory, extractorsFactory, null, null);
 
         //FOR LIVESTREAM LINK:
-        MediaSource videoSource = new HlsMediaSource(mp4VideoUri, dataSourceFactory, 1, null, null);
+        MediaSource videoSource = new HlsMediaSource.Factory(dataSourceFactory).createMediaSource(mp4VideoUri);
         final LoopingMediaSource loopingSource = new LoopingMediaSource(videoSource);
         // Prepare the player with the source.
         player.prepare(videoSource);
-
         player.addListener(new Player.EventListener() {
-
-
-            @Override
-            public void onTimelineChanged(Timeline timeline, Object manifest, int reason) {
-
-            }
 
             @Override
             public void onTracksChanged(TrackGroupArray trackGroups, TrackSelectionArray trackSelections) {
