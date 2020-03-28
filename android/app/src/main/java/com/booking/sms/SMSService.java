@@ -18,21 +18,6 @@ import com.booking.R;
 
 public class SMSService extends Service {
 
-    private static final int SERVICE_NOTIFICATION_ID = 12345;
-    private static final String CHANNEL_ID = "HEARTBEAT";
-
-    private void createNotificationChannel() {
-        // Create the NotificationChannel, but only on API 26+ because
-        // the NotificationChannel class is new and not in the support library
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            int importance = NotificationManager.IMPORTANCE_DEFAULT;
-            NotificationChannel channel = new NotificationChannel(CHANNEL_ID, "HEARTBEAT", importance);
-            channel.setDescription("CHANEL DESCRIPTION");
-            NotificationManager notificationManager = getSystemService(NotificationManager.class);
-            notificationManager.createNotificationChannel(channel);
-        }
-    }
-
     @Override
     public IBinder onBind(Intent intent) {
         return null;
@@ -50,20 +35,7 @@ public class SMSService extends Service {
     }
 
     @Override
-    public int onStartCommand(Intent intent, int flags, int startId) {;
-        createNotificationChannel();
-        Intent notificationIntent = new Intent(this, MainActivity.class);
-        PendingIntent contentIntent = PendingIntent.getActivity(this, 0, notificationIntent, PendingIntent.FLAG_CANCEL_CURRENT);
-        Notification notification = new NotificationCompat.Builder(this, CHANNEL_ID)
-                .setCategory(Notification.CATEGORY_CALL)
-                .setPriority(Notification.PRIORITY_MAX)
-                .setContentTitle("Quản Lý Đặt Chỗ")
-                .setContentText("Đang chạy...")
-                .setSmallIcon(R.mipmap.ic_launcher)
-                .setFullScreenIntent(contentIntent,true)
-                .setOngoing(true)
-                .build();
-        startForeground(SERVICE_NOTIFICATION_ID, notification);
+    public int onStartCommand(Intent intent, int flags, int startId) {
 
         SMSReceiver mSMSreceiver = new SMSReceiver();
         IntentFilter mIntentFilter = new IntentFilter();

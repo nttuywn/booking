@@ -1,23 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <Button
-        android:id="@+id/open_app_btn"
-        android:text="Open"
+    android:layout_height="wrap_content"
+    android:background="?attr/selectableItemBackground"
+    android:paddingHorizontal="30sp">
+
+    <TextView
+        android:id="@+id/noti_app_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"/>
-    <Button
-        android:id="@+id/stop_player_btn"
-        android:text="Stop"
+        android:text="@string/app_name"
+        android:textStyle="bold"
+        android:textSize="22sp"
+        android:drawablePadding="6sp"
+        android:drawableLeft="@drawable/ic_home_black"
+        android:drawableStart="@drawable/ic_home_black" />
+
+    <TextView
+        android:id="@+id/noti_video_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"/>
-    <Button
-        android:id="@+id/close_app_btn"
-        android:text="Close"
+        android:layout_below="@id/noti_app_name"
+        android:text="Video Is Playing"
+        android:layout_margin="5sp"/>
+
+    <LinearLayout
+        android:id="@+id/control_player_button"
+        android:layout_below="@+id/noti_video_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"/>
-</LinearLayout>
+        android:layout_marginTop="5sp">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/play_player_btn"
+                android:layout_width="40sp"
+                android:layout_height="40sp"
+                android:src="@drawable/ic_play"
+                android:visibility="gone"
+                android:background="?attr/selectableItemBackground"
+                />
+
+            <ImageView
+                android:id="@+id/pause_player_btn"
+                android:layout_width="40sp"
+                android:layout_height="40sp"
+                android:src="@drawable/ic_pause"
+                android:background="?attr/selectableItemBackground"
+                />
+
+        </RelativeLayout>
+        <ImageView
+            android:layout_width="40sp"
+            android:layout_height="40sp"
+            android:layout_marginLeft="20sp"
+            android:src="@drawable/ic_close"
+            android:background="?attr/selectableItemBackground"/>
+    </LinearLayout>
+    <ImageView
+        android:layout_width="100sp"
+        android:layout_height="100sp"
+        android:scaleType="fitXY"
+        android:src="@mipmap/ic_launcher"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:background="?attr/selectableItemBackground"/>
+<!--    <Button-->
+<!--        android:id="@+id/stop_player_btn"-->
+<!--        android:text="Stop"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_gravity="center"/>-->
+<!--    <Button-->
+<!--        android:id="@+id/close_app_btn"-->
+<!--        android:text="Close"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_gravity="center"/>-->
+</RelativeLayout>

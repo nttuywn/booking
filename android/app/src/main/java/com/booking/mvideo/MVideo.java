@@ -45,7 +45,7 @@ import com.google.android.exoplayer2.video.VideoRendererEventListener;
 import java.util.List;
 
 @RequiresApi(api = Build.VERSION_CODES.M)
-class MVideo extends PlayerView implements VideoRendererEventListener, AudioManager.OnAudioFocusChangeListener {
+class MVideo extends PlayerView implements VideoRendererEventListener {
 
     private static final String URI_SAMPLE = "https://vn.dungmori.com/720p/kanji-1.2.mp4/index.m3u8?58";
 
@@ -203,38 +203,4 @@ class MVideo extends PlayerView implements VideoRendererEventListener, AudioMana
 
     }
 
-    @Override
-    public void onAudioFocusChange(int focusChange) {
-        switch( focusChange ) {
-            case AudioManager.AUDIOFOCUS_LOSS: {
-                Toast.makeText(activity, "asd", Toast.LENGTH_SHORT).show();
-                if( player.getPlayWhenReady() ) {
-                    player.stop();
-                }
-                break;
-            }
-            case AudioManager.AUDIOFOCUS_LOSS_TRANSIENT: {
-                Toast.makeText(activity, "asd123", Toast.LENGTH_SHORT).show();
-                player.setPlayWhenReady(false);
-                break;
-            }
-            case AudioManager.AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK: {
-                Toast.makeText(activity, "asd456", Toast.LENGTH_SHORT).show();
-                if( player != null ) {
-                    player.setVolume(0.3f);
-                }
-                break;
-            }
-            case AudioManager.AUDIOFOCUS_GAIN: {
-                Toast.makeText(activity, "asd789", Toast.LENGTH_SHORT).show();
-                if( player != null ) {
-                    if( !player.getPlayWhenReady() ) {
-                        player.setPlayWhenReady(true);
-                    }
-                    player.setVolume(1.0f);
-                }
-                break;
-            }
-        }
-    }
 }

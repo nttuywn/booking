@@ -60,15 +60,14 @@ public class MVideoService extends Service {
         RemoteViews remoteView = new RemoteViews(getApplicationContext().getPackageName(), R.layout.video_notification);
 
         PendingIntent openAppIntent = PendingIntent.getActivity(this, 0, new Intent(this, MainActivity.class), PendingIntent.FLAG_UPDATE_CURRENT);
-        remoteView.setOnClickPendingIntent(R.id.open_app_btn, openAppIntent);
 
         PendingIntent stopVideoIntent = PendingIntent.getService(this, 0, new Intent(this, MVideoService.class), 0);
-        remoteView.setOnClickPendingIntent(R.id.stop_player_btn, stopVideoIntent);
+        remoteView.setOnClickPendingIntent(R.id.pause_player_btn, stopVideoIntent);
 
         createNotificationChannel();
         Notification notification = new NotificationCompat.Builder(this, CHANNEL_ID)
                 .setContent(remoteView)
-                .setSmallIcon(android.R.drawable.sym_def_app_icon)
+                .setSmallIcon(R.drawable.ic_home_black_24dp)
                 .setContentIntent(openAppIntent)
                 .setOngoing(true)
                 .build();

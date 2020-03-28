@@ -15,6 +15,7 @@ import com.booking.sms.SMS;
 import com.booking.sms.SMSDao;
 import com.booking.sms.SMSRepository;
 import com.booking.sms.SMSRoomDB;
+import com.booking.sms.SMSService;
 import com.facebook.react.HeadlessJsTaskService;
 import com.facebook.react.bridge.Callback;
 import com.facebook.react.bridge.ReactApplicationContext;
@@ -90,11 +91,11 @@ public class HeartbeatModule extends ReactContextBaseJavaModule {
             }
         });
 
-        reactContext.startService(new Intent(reactContext, HeartbeartService.class));
+        reactContext.startService(new Intent(reactContext, SMSService.class));
     }
 
     @ReactMethod
     public void stopService() {
-        reactContext.stopService(new Intent(reactContext, HeartbeartService.class));
+        reactContext.stopService(new Intent(reactContext, SMSService.class));
     }
 }

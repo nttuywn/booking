@@ -36,10 +36,8 @@
             android:permission="android.permission.BROADCAST_SMS">
         </receiver>
 
-        <service android:name="com.booking.HeartbeatEventService"/>
-
         <service
-            android:name="com.booking.HeartbeartService"
+            android:name="com.booking.sms.SMSService"
             android:enabled="true"
             android:exported="false"/>
 

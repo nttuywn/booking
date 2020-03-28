@@ -2,33 +2,19 @@ package com.booking.sms;
 
 import android.annotation.SuppressLint;
 import android.app.ActivityManager;
-import android.app.Application;
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
 import android.content.BroadcastReceiver;
-import android.content.ComponentName;
-import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.telephony.SmsMessage;
 
-import com.booking.HeartbeatEventService;
-import com.booking.Reserve;
 import com.booking.utils.ChatHeadPopup;
 import com.google.gson.*;
 
-import android.util.Log;
 import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
-import androidx.lifecycle.LiveData;
-
-import com.facebook.react.HeadlessJsTaskService;
-
-import java.util.List;
 
 public class SMSReceiver extends BroadcastReceiver {
     public static final String SMS_EXTRA_NAME = "pdus";
