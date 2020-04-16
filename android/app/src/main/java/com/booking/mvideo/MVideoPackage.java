@@ -24,9 +24,8 @@ public class MVideoPackage implements ReactPackage {
 
     @Override
     public List<ViewManager> createViewManagers(ReactApplicationContext reactContext) {
-        reactContext.startService(new Intent(reactContext, MVideoService.class));
         return Arrays.<ViewManager>asList(
-                new MVideoViewManager()
+                new MVideoViewManager(reactContext)
         );
     }
 }

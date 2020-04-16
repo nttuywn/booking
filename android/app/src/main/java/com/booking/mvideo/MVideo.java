@@ -1,206 +1,26 @@
 package com.booking.mvideo;
 
-import android.app.Activity;
 import android.content.Context;
-import android.media.AudioManager;
-import android.net.Uri;
 import android.os.Build;
-import android.os.Bundle;
-import android.support.v4.media.MediaBrowserCompat;
-import android.view.Surface;
-import android.widget.Toast;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
-import androidx.media.MediaBrowserServiceCompat;
 
-import com.google.android.exoplayer2.C;
-import com.google.android.exoplayer2.ExoPlaybackException;
-import com.google.android.exoplayer2.ExoPlayer;
-import com.google.android.exoplayer2.ExoPlayerFactory;
-import com.google.android.exoplayer2.Format;
-import com.google.android.exoplayer2.PlaybackParameters;
-import com.google.android.exoplayer2.Player;
+import com.booking.R;
 import com.google.android.exoplayer2.SimpleExoPlayer;
-import com.google.android.exoplayer2.Timeline;
-import com.google.android.exoplayer2.audio.AudioAttributes;
-import com.google.android.exoplayer2.decoder.DecoderCounters;
-import com.google.android.exoplayer2.source.LoopingMediaSource;
-import com.google.android.exoplayer2.source.MediaSource;
-import com.google.android.exoplayer2.source.TrackGroupArray;
-import com.google.android.exoplayer2.source.hls.HlsMediaSource;
-import com.google.android.exoplayer2.trackselection.AdaptiveTrackSelection;
-import com.google.android.exoplayer2.trackselection.DefaultTrackSelector;
-import com.google.android.exoplayer2.trackselection.TrackSelection;
-import com.google.android.exoplayer2.trackselection.TrackSelectionArray;
-import com.google.android.exoplayer2.trackselection.TrackSelector;
+import com.google.android.exoplayer2.ui.PlayerControlView;
 import com.google.android.exoplayer2.ui.PlayerView;
-import com.google.android.exoplayer2.upstream.DataSource;
-import com.google.android.exoplayer2.upstream.DefaultBandwidthMeter;
-import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory;
-import com.google.android.exoplayer2.util.Util;
-import com.google.android.exoplayer2.video.VideoRendererEventListener;
-
-import java.util.List;
 
 @RequiresApi(api = Build.VERSION_CODES.M)
-class MVideo extends PlayerView implements VideoRendererEventListener {
+class MVideo extends PlayerView {
 
-    private static final String URI_SAMPLE = "https://vn.dungmori.com/720p/kanji-1.2.mp4/index.m3u8?58";
-
-    private SimpleExoPlayer player;
-    private Activity activity;
-
-    public MVideo(Context context, Activity activity) {
+    public MVideo(Context context, SimpleExoPlayer exoPlayer) {
         super(context,null,0);
-        this.activity = activity;
-        InitView(context);
+        this.setPlayer(exoPlayer);
+        initView(context);
     }
 
-
-    private void InitView(Context context) {
-
-        //// I. ADJUST HERE:
-////CHOOSE CONTENT: LiveStream / SdCard
-//
-////LIVE STREAM SOURCE: * Livestream links may be out of date so find any m3u8 files online and replace:
-//
-////        Uri mp4VideoUri =Uri.parse("http://81.7.13.162/hls/ss1/index.m3u8"); //random 720p source
-////        Uri mp4VideoUri =Uri.parse("http://54.255.155.24:1935//Live/_definst_/amlst:sweetbcha1novD235L240P/playlist.m3u8"); //Radnom 540p indian channel
-//        Uri mp4VideoUri =Uri.parse("http://cbsnewshd-lh.akamaihd.net/i/CBSNHD_7@199302/index_700_av-p.m3u8"); //CNBC
-        Uri mp4VideoUri =Uri.parse(URI_SAMPLE);
-        // //        Uri mp4VideoUri =Uri.parse("FIND A WORKING LINK ABD PLUg INTO HERE"); //PLUG INTO HERE<------------------------------------------
-//
-//
-////VIDEO FROM SD CARD: (2 steps. set up file and path, then change videoSource to get the file)
-////        String urimp4 = "path/FileName.mp4"; //upload file to device and add path/name.mp4
-////        Uri mp4VideoUri = Uri.parse(Environment.getExternalStorageDirectory().getAbsolutePath()+urimp4);
-
-
-//        TrackSelection.Factory videoTrackSelectionFactory = new AdaptiveTrackSelection.Factory();
-//        TrackSelector trackSelector = new TrackSelector(videoTrackSelectionFactory);
-
-        // 2. Create the player
-        player = new SimpleExoPlayer.Builder(context).build();
-
-        player.setAudioAttributes(
-                new AudioAttributes
-                        .Builder()
-                        .setContentType(C.CONTENT_TYPE_MUSIC)
-                        .setUsage(C.USAGE_MEDIA)
-                        .build(), true);
-
-        ////Set media controller
-        this.setUseController(true);//set to true or false to see controllers
-        // Bind the player to the view.
-        this.setPlayer(player);
-
-        // Measures bandwidth during playback. Can be null if not required.
-        // Produces DataSource instances through which media data is loaded.
-        DataSource.Factory dataSourceFactory = new DefaultDataSourceFactory(context, Util.getUserAgent(context, "exoplayer2example"));
-        // This is the MediaSource representing the media to be played.
-//        MediaSource videoSource = new ExtractorMediaSource.Factory(dataSourceFactory).createMediaSource(liveStreamUri);
-
-        //// II. ADJUST HERE:
-
-        ////        DefaultDataSourceFactory dataSourceFactory = new DefaultDataSourceFactory(this, Util.getUserAgent(this, "exoplayer2example"), bandwidthMeterA);
-        ////Produces Extractor instances for parsing the media data.
-        //        ExtractorsFactory extractorsFactory = new DefaultExtractorsFactory();
-
-        //This is the MediaSource representing the media to be played:
-        //FOR SD CARD SOURCE:
-        //        MediaSource videoSource = new ExtractorMediaSource(mp4VideoUri, dataSourceFactory, extractorsFactory, null, null);
-
-        //FOR LIVESTREAM LINK:
-        MediaSource videoSource = new HlsMediaSource.Factory(dataSourceFactory).createMediaSource(mp4VideoUri);
-        final LoopingMediaSource loopingSource = new LoopingMediaSource(videoSource);
-        // Prepare the player with the source.
-        player.prepare(videoSource);
-        player.addListener(new Player.EventListener() {
-
-            @Override
-            public void onTracksChanged(TrackGroupArray trackGroups, TrackSelectionArray trackSelections) {
-            }
-
-            @Override
-            public void onLoadingChanged(boolean isLoading) {
-
-            }
-
-            @Override
-            public void onPlayerStateChanged(boolean playWhenReady, int playbackState) {
-
-            }
-
-            @Override
-            public void onRepeatModeChanged(int repeatMode) {
-
-            }
-
-            @Override
-            public void onShuffleModeEnabledChanged(boolean shuffleModeEnabled) {
-
-            }
-
-            @Override
-            public void onPlayerError(ExoPlaybackException error) {
-                player.stop();
-                player.prepare(loopingSource);
-                player.setPlayWhenReady(true);
-            }
-
-            @Override
-            public void onPositionDiscontinuity(int reason) {
-
-            }
-
-            @Override
-            public void onPlaybackParametersChanged(PlaybackParameters playbackParameters) {
-
-            }
-
-            @Override
-            public void onSeekProcessed() {
-
-            }
-        });
-        player.setPlayWhenReady(true); //run file/link when ready to play.
-    }
-
-    @Override
-    public void onVideoEnabled(DecoderCounters counters) {
-
-    }
-
-    @Override
-    public void onVideoDecoderInitialized(String decoderName, long initializedTimestampMs, long initializationDurationMs) {
-
-    }
-
-    @Override
-    public void onVideoInputFormatChanged(Format format) {
-
-    }
-
-    @Override
-    public void onDroppedFrames(int count, long elapsedMs) {
-
-    }
-
-    @Override
-    public void onVideoSizeChanged(int width, int height, int unappliedRotationDegrees, float pixelWidthHeightRatio) {
-
-    }
-
-    @Override
-    public void onRenderedFirstFrame(Surface surface) {
-
-    }
-
-    @Override
-    public void onVideoDisabled(DecoderCounters counters) {
-
+    private void initView(Context context){
+        this.setUseController(true);
+        this.addView(new PlayerControlView(context));
     }
 
 }

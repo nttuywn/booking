@@ -2,7 +2,6 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="?attr/selectableItemBackground"
     android:paddingHorizontal="30sp">
 
     <TextView
@@ -41,7 +40,6 @@
                 android:layout_height="40sp"
                 android:src="@drawable/ic_play"
                 android:visibility="gone"
-                android:background="?attr/selectableItemBackground"
                 />
 
             <ImageView
@@ -49,7 +47,6 @@
                 android:layout_width="40sp"
                 android:layout_height="40sp"
                 android:src="@drawable/ic_pause"
-                android:background="?attr/selectableItemBackground"
                 />
 
         </RelativeLayout>
@@ -57,8 +54,7 @@
             android:layout_width="40sp"
             android:layout_height="40sp"
             android:layout_marginLeft="20sp"
-            android:src="@drawable/ic_close"
-            android:background="?attr/selectableItemBackground"/>
+            android:src="@drawable/ic_close"/>
     </LinearLayout>
     <ImageView
         android:layout_width="100sp"
@@ -67,8 +63,7 @@
         android:src="@mipmap/ic_launcher"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_centerVertical="true"
-        android:background="?attr/selectableItemBackground"/>
+        android:layout_centerVertical="true"/>
 <!--    <Button-->
 <!--        android:id="@+id/stop_player_btn"-->
 <!--        android:text="Stop"-->

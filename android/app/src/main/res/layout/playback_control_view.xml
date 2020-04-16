@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/buttonGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/buttonPlay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Play"
+            android:layout_margin="5sp"/>
+
+        <Button
+            android:id="@+id/buttonPause"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pause"
+            android:layout_margin="5sp"
+            android:layout_toEndOf="@id/buttonPlay"
+            android:layout_toRightOf="@id/buttonPlay" />
+
+        <Button
+            android:id="@+id/buttonFullScreen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Full"
+            android:layout_margin="5sp"
+            android:layout_toEndOf="@id/buttonPause"
+            android:layout_toRightOf="@id/buttonPause" />
+
+        <Button
+            android:id="@+id/buttonWindow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Window"
+            android:layout_margin="5sp"
+            android:layout_toEndOf="@id/buttonFullScreen"
+            android:layout_toRightOf="@id/buttonFullScreen" />
+
+        <Button
+            android:id="@+id/buttonBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Back 5s"
+            android:layout_margin="5sp"
+            android:layout_below="@id/buttonPlay" />
+
+        <Button
+            android:id="@+id/buttonForward"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Forward 5s"
+            android:layout_margin="5sp"
+            android:layout_below="@id/buttonPause"
+            android:layout_toEndOf="@id/buttonBack"
+            android:layout_toRightOf="@id/buttonBack" />
+
+        <Button
+            android:id="@+id/buttonLock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lock"
+            android:layout_margin="5sp"
+            android:layout_below="@id/buttonFullScreen"
+            android:layout_toEndOf="@id/buttonForward"
+            android:layout_toRightOf="@id/buttonForward"/>
+
+        <Button
+            android:id="@+id/buttonXSpeed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1.5x"
+            android:layout_margin="5sp"
+            android:layout_below="@id/buttonBack" />
+
+        <Button
+            android:id="@+id/buttonBackGroundPlay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Back Ground Play"
+            android:layout_margin="5sp"
+            android:layout_below="@id/buttonForward"
+            android:layout_toEndOf="@id/buttonXSpeed"
+            android:layout_toRightOf="@id/buttonXSpeed" />
+
+        <Button
+            android:id="@+id/buttonSmallWindow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Small"
+            android:layout_margin="5sp"
+            android:layout_below="@id/buttonForward"
+            android:layout_toEndOf="@id/buttonBackGroundPlay"
+            android:layout_toRightOf="@id/buttonBackGroundPlay" />
+
+    </RelativeLayout>
+
+    <SeekBar
+        android:id="@+id/seekProcess"
+        android:layout_width="match_parent"
+        android:layout_height="25sp"
+        android:max="100"
+        android:layout_below="@id/buttonGroup"/>
+</RelativeLayout>
